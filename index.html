@@ -32,10 +32,12 @@ textarea{width:100%;border:1px solid var(--bd);border-radius:10px;padding:.5rem;
 .boss .go,.boss .done,.boss textarea,.boss label.b,.boss .ck input{pointer-events:none}.boss .go,.boss .done,.boss label.b{display:none}.boss label.b.rc{display:block!important;pointer-events:auto!important;flex-basis:100%;background:#fff8e1}
 .lock{max-width:420px;margin:40px auto;background:#fff;border:1px solid var(--bd);border-radius:18px;padding:20px;text-align:center}
 .gd{margin-top:.6rem;background:#f6faf6;border:1px solid var(--bd);border-radius:12px;padding:.5rem .7rem;font-size:.93rem}.gd summary{font-weight:800;cursor:pointer;color:var(--gd)}.gd p{margin:.4rem 0}.gd h4{margin:.6rem 0 .2rem;font-size:.9rem}.gd ul,.gd ol{margin:.2rem 0 .3rem 1.2rem;padding:0}.gd li{margin:.15rem 0}.gd .wr{background:#fff3e0;border-radius:8px;padding:.35rem .5rem;font-weight:600}
+.mpin{width:28px;height:28px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.4);display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}.mpin span{transform:rotate(45deg)}#mapb.on{background:#fff;color:var(--gd)}
 </style></head><body>
 <header><div class="top"><div class="cmp" id="cmp">🧭</div><div><h1>Μπούσουλας</h1><div class="sub" id="hello">Καθαρά Χέρια · πρόγραμμα ημέρας</div></div></div>
-<div class="nav"><button id="prev">‹</button><div class="d" id="dl"></div><button id="next">›</button><button id="today">Σήμερα</button></div>
+<div class="nav"><button id="prev">‹</button><div class="d" id="dl"></div><button id="next">›</button><button id="today">Σήμερα</button><button id="mapb" title="Χάρτης & δρομολόγιο">🗺️</button></div>
 <div class="bar"><i id="pb"></i></div></header>
+<div id="mapbox" style="display:none;max-width:640px;margin:0 auto;padding:12px 12px 0"><div id="mapc" style="height:340px;border-radius:16px;border:1px solid var(--bd);overflow:hidden"></div><div class="row" style="margin-top:6px;align-items:center"><div id="mapinfo" class="sub" style="flex:1;color:var(--mu);font-weight:700"></div><button class="b" id="meb" style="flex:0 0 auto;padding:.4rem .7rem">📍 Πού είμαι</button></div></div>
 <main id="m"><div class="empty">Φόρτωση…</div></main>
 <div class="toast" id="toast"></div>
 <script>
@@ -91,7 +93,29 @@ function render(r){DATA=r;var d=pd(r.date),isToday=r.date===ymd(new Date());
    if(ok)h+='<div class="sub" style="margin-top:.5rem;color:var(--mu)">⏱ '+(j.hasT0?j.t0:'')+(j.hasT1?' → '+j.t1:'')+(j.photos?' · 📷 φωτογραφίες ✓':'')+'</div>';
    if(BOSS)h+='<div class="row"><label class="b rc">🧾 '+(j.receipt?'Παραστατικό ✓ (αλλαγή)':'Ανέβασμα παραστατικού')+'<input type="file" accept="application/pdf,image/*" style="display:none" onchange="receipt(\''+j.id+'\',this)"></label></div>'+(j.sent?'<div class="sub" style="color:#1b5e20;font-weight:700">📧 Αναφορά στον πελάτη: '+esc(j.sent)+'</div>':(j.email?'':'<div class="sub" style="color:#a12622">Χωρίς email πελάτη</div>'));
    h+='<textarea rows="2" placeholder="Σημείωση (π.χ. χαλασμένη λάμπα στον 2ο)" onchange="act(\''+j.id+'\',\'note\',this.value)">'+esc(j.cnote)+'</textarea></div>';});}
- document.getElementById('m').innerHTML=h;tickTimers();}
+ document.getElementById('m').innerHTML=h;tickTimers();mapDraw();}
+
+var MAPON=false,MP=null,ML=null,MR=null,MRK='',ME=null;
+function loadLeaflet(cb){if(window.L)return cb();var l=document.createElement('link');l.rel='stylesheet';l.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(l);var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';s.onload=cb;s.onerror=function(){document.getElementById('mapinfo').textContent='⚠️ Ο χάρτης δεν φόρτωσε – ελέγξτε τη σύνδεση';};document.head.appendChild(s);}
+function stCol(s){return /✅/.test(s)?'#43a047':/εξέλιξη|🧹/.test(s)?'#fb8c00':'#1e88e5';}
+function mapDraw(){if(!MAPON||!DATA||!window.L)return;var info=document.getElementById('mapinfo');
+ if(!MP){MP=L.map('mapc',{zoomControl:true});L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap · OSRM'}).addTo(MP);ML=L.layerGroup().addTo(MP);}
+ ML.clearLayers();var st=DATA.start,pts=[],b=[],miss=0;
+ if(st){L.marker([st.lat,st.lon],{icon:L.divIcon({className:'',html:'<div style="font-size:22px">🏁</div>',iconSize:[24,24],iconAnchor:[5,22]})}).addTo(ML).bindTooltip('Αφετηρία: '+esc(st.name||'Πάρκο'));b.push([st.lat,st.lon]);}
+ DATA.jobs.forEach(function(j,i){if(j.lat==null){miss++;return;}var c=stCol(j.status);
+  L.marker([j.lat,j.lon],{icon:L.divIcon({className:'',iconSize:[28,28],iconAnchor:[14,28],popupAnchor:[0,-24],html:'<div class="mpin" style="background:'+c+'"><span>'+(i+1)+'</span></div>'})}).addTo(ML)
+   .bindPopup('<b>'+(i+1)+'. '+esc(j.name)+'</b><br>'+j.start+' · '+esc(j.status)+'<br>📍 '+esc(j.addr)+'<br><a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination='+j.lat+','+j.lon+'">🧭 Πλοήγηση</a>');
+  b.push([j.lat,j.lon]);pts.push([j.lat,j.lon]);});
+ if(ME)b.push(ME.getLatLng());
+ var key=DATA.date+'|'+(st?st.lat+','+st.lon:'')+'|'+pts.join(';');
+ if(key!==MRK){MRK=key;if(b.length>1)MP.fitBounds(b,{padding:[30,30],maxZoom:16});else MP.setView(b[0]||[40.7817,21.4098],14);
+  if(MR){MP.removeLayer(MR);MR=null;}info.textContent=DATA.jobs.length?(miss?'📍 '+miss+' εργασίες χωρίς θέση στον χάρτη':''):'Καμία εργασία αυτή τη μέρα';
+  if(st&&pts.length){var co=[[st.lat,st.lon]].concat(pts).concat([[st.lat,st.lon]]).map(function(p){return p[1].toFixed(6)+','+p[0].toFixed(6);}).join(';');
+   fetch('https://router.project-osrm.org/route/v1/driving/'+co+'?overview=full&geometries=geojson').then(function(r){return r.json();}).then(function(o){if(o.code!=='Ok'||key!==MRK)return;var r=o.routes[0];MR=L.geoJSON(r.geometry,{style:{color:'#1b5e20',weight:5,opacity:.75}}).addTo(MP);
+    info.textContent='🚐 Δρομολόγιο: '+(r.distance/1000).toFixed(1)+' km · '+Math.round(r.duration/60)+' λεπτά οδήγηση'+(miss?' · 📍 '+miss+' χωρίς θέση':'');}).catch(function(){});}}
+ setTimeout(function(){MP.invalidateSize();},50);}
+document.getElementById('mapb').onclick=function(){MAPON=!MAPON;this.className=MAPON?'on':'';document.getElementById('mapbox').style.display=MAPON?'block':'none';if(MAPON)loadLeaflet(function(){MRK='';mapDraw();});};
+document.getElementById('meb').onclick=function(){if(!navigator.geolocation){toast('⚠️ Δεν υποστηρίζεται');return;}navigator.geolocation.getCurrentPosition(function(p){var ll=[p.coords.latitude,p.coords.longitude];if(ME)ME.setLatLng(ll);else ME=L.circleMarker(ll,{radius:8,color:'#fff',weight:3,fillColor:'#1565c0',fillOpacity:1}).addTo(MP).bindTooltip('Εσύ');MP.setView(ll,16);},function(){toast('⚠️ Δεν δόθηκε άδεια τοποθεσίας');},{enableHighAccuracy:true,timeout:10000});};
 function receipt(id,inp){var f=inp.files&&inp.files[0];if(!f)return;if(f.size>8e6){toast('⚠️ Πολύ μεγάλο αρχείο');return;}toast('🧾 Ανέβασμα…');var fr=new FileReader();fr.onload=function(){google.script.run.withSuccessHandler(function(r){render(r);toast('🧾 Το παραστατικό ανέβηκε');}).withFailureHandler(function(e){toast('⚠️ '+(e.message||e));}).kaAppReceipt(KEY,id,fr.result,f.name);};fr.readAsDataURL(f);}
 function tick(id,el,t){var o=getCk(id);o[t]=el.checked?1:0;setCk(id,o);if(el.checked)toast('✔️ '+t);}
 function finish(id,k){var L=CKJ[id]||CK[k],o=getCk(id),miss=L.filter(function(t){return !o[t];});if(miss.length&&!confirm('Δεν έχεις τσεκάρει:\n• '+miss.join('\n• ')+'\n\nΝα το κλείσω έτσι κι αλλιώς;'))return;act(id,'done',L.filter(function(t){return o[t];}).join(' | '));}
