@@ -94,7 +94,7 @@ function render(r){DATA=r;var d=pd(r.date),isToday=r.date===ymd(new Date());
  document.getElementById('m').innerHTML=h;tickTimers();}
 function receipt(id,inp){var f=inp.files&&inp.files[0];if(!f)return;if(f.size>8e6){toast('⚠️ Πολύ μεγάλο αρχείο');return;}toast('🧾 Ανέβασμα…');var fr=new FileReader();fr.onload=function(){google.script.run.withSuccessHandler(function(r){render(r);toast('🧾 Το παραστατικό ανέβηκε');}).withFailureHandler(function(e){toast('⚠️ '+(e.message||e));}).kaAppReceipt(KEY,id,fr.result,f.name);};fr.readAsDataURL(f);}
 function tick(id,el,t){var o=getCk(id);o[t]=el.checked?1:0;setCk(id,o);if(el.checked)toast('✔️ '+t);}
-function finish(id,k){var o=getCk(id),miss=CK[k].filter(function(t){return !o[t];});if(miss.length&&!confirm('Δεν έχεις τσεκάρει:\n• '+miss.join('\n• ')+'\n\nΝα το κλείσω έτσι κι αλλιώς;'))return;act(id,'done');}
+function finish(id,k){var o=getCk(id),miss=CK[k].filter(function(t){return !o[t];});if(miss.length&&!confirm('Δεν έχεις τσεκάρει:\n• '+miss.join('\n• ')+'\n\nΝα το κλείσω έτσι κι αλλιώς;'))return;act(id,'done',CK[k].filter(function(t){return o[t];}).join(' | '));}
 function tickTimers(){[].forEach.call(document.querySelectorAll('.timer'),function(e){var n=new Date(),now=n.getHours()*60+n.getMinutes(),el=now-mins(e.getAttribute('data-t0')),pl=+e.getAttribute('data-dur')*60;e.textContent='⏱ '+el+' / '+pl+' λεπτά'+(el>pl?' – πάνω από τον χρόνο':'');e.className='timer'+(el>pl?' late':'');});}
 document.getElementById('prev').onclick=function(){var d=pd(D);d.setDate(d.getDate()-1);load(ymd(d));};
 document.getElementById('next').onclick=function(){var d=pd(D);d.setDate(d.getDate()+1);load(ymd(d));};

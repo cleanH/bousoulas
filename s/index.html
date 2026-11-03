@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2e7d32">
+<title>Η σκάλα μας – Καθαρά Χέρια</title>
+<style>
+:root{--g:#2e7d32;--gd:#1b5e20;--gl:#e8f5e9;--ink:#17201a;--mu:#5f6b61;--bd:#dfe6df;--bg:#f4f8f4;--card:#fff;--warn:#e65100;--wbg:#fff3e0;--star:#f9a825}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px 40px}
+header{background:var(--g);color:#fff;padding:18px 16px 54px;text-align:center}
+header img{height:46px;background:#fff;border-radius:10px;padding:4px 8px}
+header h1{margin:10px 0 2px;font-size:1.35rem}
+header p{margin:0;opacity:.9;font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin:14px 0;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card:first-of-type{margin-top:-38px}
+.card h2{margin:0 0 10px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}
+.big{font-size:1.45rem;font-weight:800;line-height:1.2}
+.sub{color:var(--mu);font-size:.93rem}
+ul.ck{list-style:none;padding:0;margin:12px 0 0}
+ul.ck li{padding:6px 0 6px 30px;position:relative;border-top:1px dashed var(--bd)}
+ul.ck li:before{content:"✓";position:absolute;left:4px;top:5px;width:20px;height:20px;border-radius:50%;background:var(--gl);color:var(--g);font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.pill{display:inline-block;background:var(--gl);color:var(--gd);border-radius:99px;padding:3px 10px;font-size:.85rem;font-weight:600;margin:8px 6px 0 0}
+.score{display:flex;align-items:center;gap:16px}
+.ring{--p:0;width:92px;height:92px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:conic-gradient(var(--g) calc(var(--p)*1%),var(--gl) 0)}
+.ring b{width:72px;height:72px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.ring b small{font-size:.7rem;color:var(--mu);font-weight:600;margin-left:1px}
+.stars{color:var(--star);letter-spacing:2px;font-size:1.15rem}
+.vote{display:flex;justify-content:space-between;gap:6px;margin-top:8px}
+.vote button{flex:1;aspect-ratio:1;max-width:64px;border:1px solid var(--bd);background:#fff;border-radius:14px;font-size:1.6rem;color:#c9c9c9;cursor:pointer}
+.vote button.on{color:var(--star);border-color:var(--star);background:#fffde7}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-size:1.05rem;font-weight:700;cursor:pointer}
+.alert{background:var(--wbg);color:var(--warn);border:2px solid #ffcc80}
+.go{background:var(--g);color:#fff}
+.go:disabled{opacity:.6}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chips button{border:1px solid var(--bd);background:#fff;border-radius:99px;padding:8px 12px;font-size:.92rem;cursor:pointer}
+.chips button.on{background:var(--g);color:#fff;border-color:var(--g)}
+textarea,input{width:100%;border:1px solid var(--bd);border-radius:12px;padding:12px;font:inherit;margin:6px 0 10px}
+textarea{min-height:90px}
+.ok{background:var(--gl);color:var(--gd);border-radius:12px;padding:12px;font-weight:600;margin-top:10px}
+.err{background:#ffebee;color:#b71c1c;border-radius:12px;padding:12px;margin-top:10px}
+.demo{position:relative;margin:-38px 0 12px;background:#fff8e1;border:2px dashed #f9a825;color:#8d6e00;text-align:center;font-weight:800;border-radius:12px;padding:8px;margin-top:14px}
+footer{text-align:center;color:var(--mu);font-size:.85rem;margin-top:22px}
+footer a{color:var(--gd)}
+.hide{display:none}
+.demo:not(.hide)+#app .card:first-child{margin-top:0}
+.skel{color:var(--mu);text-align:center;padding:30px 0}
+</style>
+</head>
+<body>
+<header>
+  <img src="../img/kathara-xeria-logo.png" alt="Καθαρά Χέρια">
+  <h1 id="lbl">Η σκάλα μας</h1>
+  <p>Διαφάνεια στην καθαριότητα της πολυκατοικίας</p>
+</header>
+<div class="wrap">
+  <div id="demo" class="demo hide">ΠΑΡΑΔΕΙΓΜΑ – ενδεικτικά στοιχεία επίδειξης</div>
+  <div id="app"><div class="card skel">Φόρτωση…</div></div>
+  <footer>
+    Την καθαριότητα κάνει η <b>Καθαρά Χέρια ΑΜΚΕ</b> · <a href="https://www.greensoap.gr/p/katharismos.html">greensoap.gr</a><br>
+    Η ψήφος σας είναι ανώνυμη. Τηλέφωνο ή email ζητάμε μόνο αν θέλετε απάντηση.
+  </footer>
+</div>
+<script>
+var API='https://script.google.com/macros/s/AKfycbxvrojn1ZwQ43SfOQnPQpS5RHVoUkOl8h2EzEpB3uyvsapOndwvPrk3DT8NsDpQuR3F/exec';
+var T=(new URLSearchParams((location.hash||'').replace(/^#/,''))).get('t')||'';
+var DEMO=T==='demo', D=null, TOPIC='', DN=['Κυριακή','Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'],MN=['Ιανουαρίου','Φεβρουαρίου','Μαρτίου','Απριλίου','Μαΐου','Ιουνίου','Ιουλίου','Αυγούστου','Σεπτεμβρίου','Οκτωβρίου','Νοεμβρίου','Δεκεμβρίου'];
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+var DEV=ls('ks_dev');if(!DEV){DEV='';var a='abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789';for(var i=0;i<16;i++)DEV+=a[Math.floor(Math.random()*a.length)];ls('ks_dev',DEV);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function dt(ymd){var p=String(ymd).split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return {d:d,txt:DN[d.getDay()]+' '+d.getDate()+' '+MN[d.getMonth()]};}
+function ago(ymd){var p=String(ymd).split('-'),d=new Date(+p[0],+p[1]-1,+p[2]),t=new Date();t.setHours(0,0,0,0);var n=Math.round((t-d)/864e5);return n<=0?'σήμερα':n===1?'χθες':'πριν από '+n+' ημέρες';}
+function stars(x){var s='';for(var i=1;i<=5;i++)s+=x>=i-0.25?'★':'☆';return s;}
+function demoData(){var t=new Date(),y=function(k){var d=new Date(t);d.setDate(d.getDate()+k);return d.toISOString().slice(0,10);};
+ return {label:'Πολυκατοικία (παράδειγμα)',today:y(0),last:{date:y(-1),t0:'09:05',t1:'10:20',items:['Σκούπισμα σκάλας','Σφουγγάρισμα σκάλας & πλατύσκαλων','Κουπαστές & διακόπτες','Είσοδος & τζάμια εισόδου','Γραμματοκιβώτια'],std:false,photo:true},
+ next:{date:y(2),start:'09:00'},n30:8,score:{n:14,avg:4.6,idx:9.2},rep:{n:2,solved:2},topics:['Δεν καθαρίστηκε καλά','Λεκές / λερωμένο σημείο','Σκουπίδια ή ογκώδη','Τζάμια εισόδου','Ασανσέρ','Άλλο']};}
+function load(){
+ if(DEMO){document.getElementById('demo').classList.remove('hide');D=demoData();return render();}
+ if(!T){document.getElementById('app').innerHTML='<div class="card"><div class="big">Σκανάρετε το QR</div><p class="sub">Η σελίδα ανοίγει από το QR που βρίσκεται στην είσοδο της πολυκατοικίας σας.</p></div>';return;}
+ fetch(API+'?skala='+encodeURIComponent(T)).then(function(r){return r.json();}).then(function(j){if(!j.ok)throw new Error(j.err||'Σφάλμα');D=j.r;render();})
+ .catch(function(e){document.getElementById('app').innerHTML='<div class="card"><div class="big">Κάτι δεν πήγε καλά</div><p class="sub">'+esc(e.message||'Χωρίς σύνδεση')+'</p><button class="btn go" onclick="load()">Δοκιμάστε ξανά</button></div>';});
+}
+function render(){
+ document.getElementById('lbl').textContent=D.label;document.title=D.label+' – Η σκάλα μας';
+ var h='',L=D.last;
+ h+='<div class="card"><h2>🧹 Τελευταίος καθαρισμός</h2>';
+ if(L){var x=dt(L.date);h+='<div class="big">'+x.txt+'</div><div class="sub">'+ago(L.date)+(L.t0||L.t1?' · '+esc(L.t0||'')+(L.t1?'–'+esc(L.t1):''):'')+'</div>';
+  h+='<ul class="ck">'+L.items.map(function(i){return '<li>'+esc(i)+'</li>';}).join('')+'</ul>';
+  if(L.std)h+='<div class="sub" style="margin-top:6px">Το πρόγραμμα καθαρισμού της υπηρεσίας.</div>';
+  if(L.photo)h+='<span class="pill">📷 Τεκμηριώθηκε με φωτογραφία</span>';}
+ else h+='<div class="big">Δεν έχει καταγραφεί ακόμη</div><div class="sub">Μόλις ολοκληρωθεί ο πρώτος καθαρισμός θα εμφανιστεί εδώ.</div>';
+ if(D.n30)h+='<span class="pill">'+D.n30+' καθαρισμοί τις τελευταίες 30 ημέρες</span>';
+ if(D.next){var n=dt(D.next.date);h+='<div class="sub" style="margin-top:12px">Επόμενος: <b>'+(D.next.date===D.today?'σήμερα':n.txt)+'</b> · '+(Number(String(D.next.start).slice(0,2))<13?'πρωί':'απόγευμα')+'</div>';}
+ h+='</div>';
+ var S=D.score,p=Math.round((S.idx||0)*10);
+ h+='<div class="card"><h2>⭐ Δείκτης καθαριότητας</h2>';
+ if(S.n){h+='<div class="score"><div class="ring" style="--p:'+p+'"><b>'+String(S.idx).replace('.',',')+'<small>/10</small></b></div><div><div class="stars">'+stars(S.avg)+'</div><div class="sub">από <b>'+S.n+'</b> '+(S.n===1?'ψήφο':'ψήφους')+' ενοίκων<br>(τελευταίες 90 ημέρες)</div></div></div>';}
+ else h+='<div class="sub">Δεν υπάρχουν ακόμη ψήφοι. Γίνετε ο πρώτος!</div>';
+ if(D.rep&&D.rep.n)h+='<span class="pill">Αναφορές ενοίκων: '+D.rep.n+' · λύθηκαν '+D.rep.solved+'</span>';
+ var mv=Number(ls('ks_v_'+T)||0);
+ h+='<div style="margin-top:14px;font-weight:700">Πώς βρήκατε τη σκάλα σήμερα;</div><div class="vote">';
+ for(var i=1;i<=5;i++)h+='<button aria-label="'+i+' αστέρια" class="'+(mv>=i?'on':'')+'" onclick="vote('+i+')">★</button>';
+ h+='</div><div id="vmsg">'+(mv?'<div class="ok">Ευχαριστούμε! Μπορείτε να αλλάξετε την ψήφο σας.</div>':'')+'</div></div>';
+ h+='<div class="card"><button class="btn alert" onclick="openRep()">⚠️ Κάτι χρειάζεται προσοχή</button><div class="sub" style="margin-top:8px;text-align:center">Έρχεται απευθείας σε εμάς – χωρίς τηλέφωνα στον διαχειριστή.</div>';
+ h+='<div id="rep" class="hide"><div class="chips">'+D.topics.map(function(t){return '<button onclick="pick(this)">'+esc(t)+'</button>';}).join('')+'</div>';
+ h+='<textarea id="msg" maxlength="600" placeholder="Τι παρατηρήσατε; (π.χ. «λεκές στον 2ο όροφο»)"></textarea>';
+ h+='<input id="con" maxlength="120" placeholder="Τηλέφωνο ή email – μόνο αν θέλετε απάντηση (προαιρετικό)">';
+ h+='<button id="sb" class="btn go" onclick="send()">Αποστολή</button><div id="rmsg"></div></div></div>';
+ document.getElementById('app').innerHTML=h;
+}
+function post(body,ok,fail){if(DEMO){setTimeout(function(){ok(D);},300);return;}
+ body.kind='ka_skala';body.t=T;body.dev=DEV;
+ fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)}).then(function(r){return r.json();})
+ .then(function(j){if(!j.ok)throw new Error(j.err||'Σφάλμα');ok(j.r);}).catch(function(e){fail(e.message||'Χωρίς σύνδεση – δοκιμάστε ξανά');});}
+function vote(n){var bs=document.querySelectorAll('.vote button');bs.forEach(function(b,i){b.classList.toggle('on',i<n);});
+ document.getElementById('vmsg').innerHTML='<div class="sub">Αποστολή…</div>';
+ post({type:'vote',stars:n},function(r){ls('ks_v_'+T,String(n));if(!DEMO)D=r;render();},function(e){document.getElementById('vmsg').innerHTML='<div class="err">'+esc(e)+'</div>';});}
+function openRep(){document.getElementById('rep').classList.toggle('hide');}
+function pick(b){document.querySelectorAll('.chips button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');TOPIC=b.textContent;}
+function send(){var m=document.getElementById('msg').value.trim(),c=document.getElementById('con').value.trim(),o=document.getElementById('rmsg');
+ if(!TOPIC&&!m){o.innerHTML='<div class="err">Διαλέξτε θέμα ή γράψτε λίγα λόγια.</div>';return;}
+ var sb=document.getElementById('sb');sb.disabled=true;sb.textContent='Αποστολή…';
+ post({type:'report',topic:TOPIC||'Άλλο',msg:m,contact:c},function(r){if(!DEMO)D=r;TOPIC='';render();
+  document.getElementById('app').insertAdjacentHTML('beforeend','<div class="card ok">✅ Η αναφορά σας ήρθε απευθείας στην Καθαρά Χέρια. Ευχαριστούμε!</div>');},
+  function(e){sb.disabled=false;sb.textContent='Αποστολή';o.innerHTML='<div class="err">'+esc(e)+'</div>';});}
+window.addEventListener('hashchange',function(){T=(new URLSearchParams(location.hash.replace(/^#/,''))).get('t')||'';DEMO=T==='demo';load();});
+load();
+</script>
+</body>
+</html>
