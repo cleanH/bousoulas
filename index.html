@@ -1,131 +1,330 @@
-<!DOCTYPE html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#1b5e20"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Μπούσουλας"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><title>Μπούσουλας – Καθαρά Χέρια</title>
+<!DOCTYPE html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#1b5e20"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Μπούσουλας"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><title>Μπούσουλας – Καθαρά Χέρια</title>
 <style>
-:root{--g:#2e7d32;--gd:#1b5e20;--bg:#f2f6f2;--ink:#17161a;--mu:#5f6b61;--bd:#dfe6df;--warn:#e65100}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);-webkit-tap-highlight-color:transparent}
-header{position:sticky;top:0;z-index:5;background:var(--gd);color:#fff;padding:12px 14px 10px}
-.top{display:flex;align-items:center;gap:10px}
-.cmp{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:24px;transition:transform .8s}
-h1{font-size:1.15rem;margin:0}.sub{font-size:.85rem;opacity:.85}
-.nav{display:flex;align-items:center;gap:6px;margin-top:10px}
-.nav button{border:0;border-radius:10px;padding:.45rem .7rem;font:inherit;font-weight:700;background:rgba(255,255,255,.15);color:#fff}
-.nav .d{flex:1;text-align:center;font-weight:800}
-.bar{height:8px;border-radius:99px;background:rgba(255,255,255,.25);overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;background:#a5d6a7;width:0;transition:width .5s}
-main{padding:12px;max-width:640px;margin:0 auto}
-.next{background:#fff3cd;border:1px solid #f3d27a;border-radius:14px;padding:.7rem .9rem;margin-bottom:12px;font-weight:700}
-.card{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:12px 14px;margin-bottom:12px;position:relative}
-.card.run{border:2px solid var(--g);box-shadow:0 4px 14px rgba(46,125,50,.18)}.card.ok{opacity:.72}
-.tm{font-weight:800;font-size:1.05rem}.tm small{font-weight:600;color:var(--mu)}
-.st{position:absolute;right:12px;top:12px;font-size:.8rem;font-weight:800;border-radius:99px;padding:2px 9px;background:#eef3ee}
-.nm{font-size:1.1rem;font-weight:800;margin:.2rem 0}.ad{color:var(--mu)}
-.svc{display:inline-block;margin-top:.3rem;font-size:.8rem;font-weight:700;background:#e8f5e9;color:var(--gd);border-radius:99px;padding:2px 8px}
-.nt{margin-top:.5rem;background:#fff8e1;border-radius:10px;padding:.45rem .6rem;font-size:.92rem}
-.row{display:flex;gap:8px;margin-top:.6rem;flex-wrap:wrap}
-.b{flex:1 1 30%;border:1px solid var(--bd);background:#fff;border-radius:12px;padding:.65rem .4rem;font:inherit;font-weight:800;text-align:center;text-decoration:none;color:var(--ink)}
-.b.go{background:var(--g);color:#fff;border-color:var(--g);flex-basis:100%}.b.done{background:var(--gd);color:#fff;border-color:var(--gd);flex-basis:100%}
-.ck{list-style:none;padding:0;margin:.6rem 0 0}.ck li{display:flex;gap:10px;align-items:center;padding:.5rem .2rem;border-top:1px dashed var(--bd);font-weight:600}
-.ck input{width:24px;height:24px;accent-color:var(--g)}
-.timer{margin-top:.5rem;font-weight:800}.timer.late{color:var(--warn)}
-.empty{text-align:center;color:var(--mu);padding:40px 10px}
-.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#222;color:#fff;border-radius:12px;padding:.6rem 1rem;font-weight:700;display:none;z-index:9}
-.sum{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:.6rem .8rem;margin-bottom:12px;display:flex;justify-content:space-around;text-align:center;font-size:.85rem}.sum b{display:block;font-size:1.2rem}
-textarea{width:100%;border:1px solid var(--bd);border-radius:10px;padding:.5rem;font:inherit;margin-top:.5rem}
-.boss .go,.boss .done,.boss textarea,.boss label.b,.boss .ck input{pointer-events:none}.boss .go,.boss .done,.boss label.b{display:none}.boss label.b.rc{display:block!important;pointer-events:auto!important;flex-basis:100%;background:#fff8e1}
-.lock{max-width:420px;margin:40px auto;background:#fff;border:1px solid var(--bd);border-radius:18px;padding:20px;text-align:center}
-.gd{margin-top:.6rem;background:#f6faf6;border:1px solid var(--bd);border-radius:12px;padding:.5rem .7rem;font-size:.93rem}.gd summary{font-weight:800;cursor:pointer;color:var(--gd)}.gd p{margin:.4rem 0}.gd h4{margin:.6rem 0 .2rem;font-size:.9rem}.gd ul,.gd ol{margin:.2rem 0 .3rem 1.2rem;padding:0}.gd li{margin:.15rem 0}.gd .wr{background:#fff3e0;border-radius:8px;padding:.35rem .5rem;font-weight:600}
-.mpin{width:28px;height:28px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.4);display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}.mpin span{transform:rotate(45deg)}#mapb.on{background:#fff;color:var(--gd)}
+:root{--g:#2e7d32;--gd:#1b5e20;--gl:#e8f5e9;--bg:#f2f6f2;--ink:#17201a;--mu:#55625a;--bd:#d9e2da;--warn:#b54708;--red:#c62828;--yel:#fff4cc;--tab:64px}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);font:17px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);-webkit-tap-highlight-color:transparent;padding-bottom:calc(var(--tab) + env(safe-area-inset-bottom) + 10px)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #0b57d0;outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:var(--gd);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;display:flex;align-items:center;gap:10px}
+header .ti{flex:1;min-width:0}header h1{font-size:1.15rem;margin:0}header .sub{font-size:.85rem;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sos{border:0;background:var(--red);color:#fff;font-weight:900;border-radius:999px;padding:.55rem .9rem;font-size:1rem;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.net{display:none;margin:0;padding:.55rem 14px;font-weight:700;font-size:.92rem;background:#fff3e0;color:#7a3b00;border-bottom:1px solid #f3d1a5}
+.net.on{display:block}.net.sync{background:#e3f2fd;color:#0d47a1;border-color:#bbdefb}
+main{max-width:640px;margin:0 auto;padding:12px}
+.view{display:none}.view.on{display:block}
+.day{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.day button{min-width:48px;min-height:48px;border:1px solid var(--bd);background:#fff;border-radius:14px;font-weight:800;font-size:1.2rem}
+.day .d{flex:1;text-align:center;font-weight:800;font-size:1.05rem}
+.day .td{font-size:.9rem;padding:0 .7rem}
+.card{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:14px;margin-bottom:12px}
+.card.run{border:2px solid var(--g);box-shadow:0 4px 14px rgba(46,125,50,.18)}
+.card.ok{background:#f7faf7}
+.ch{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.time{font-weight:800;font-size:1.05rem}.time small{color:var(--mu);font-weight:600}
+.pill{font-size:.8rem;font-weight:800;border-radius:99px;padding:3px 10px;background:#eef3ee;white-space:nowrap}
+.pill.run{background:#fff3e0;color:#7a3b00}.pill.ok{background:var(--gl);color:var(--gd)}
+.nm{font-size:1.15rem;font-weight:800;margin:.25rem 0 .1rem}.ad{color:var(--mu)}
+.svc{display:inline-block;margin-top:.35rem;font-size:.82rem;font-weight:700;background:var(--gl);color:var(--gd);border-radius:99px;padding:2px 9px}
+.nt{margin-top:.55rem;background:#fff8e1;border-radius:12px;padding:.5rem .65rem;font-size:.95rem}
+.big{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:58px;border:0;border-radius:16px;font-weight:900;font-size:1.15rem;margin-top:.75rem;color:#fff;background:var(--g);text-decoration:none}
+.big.dk{background:var(--gd)}.big.red{background:var(--red)}.big.out{background:#fff;color:var(--gd);border:2px solid var(--g)}.big.gray{background:#eceff1;color:#37474f}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:.7rem}
+.q{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:62px;border:1px solid var(--bd);background:#fff;border-radius:14px;font-weight:700;font-size:.78rem;text-decoration:none;color:var(--ink);text-align:center;padding:4px;cursor:pointer}
+.q span{font-size:1.35rem;line-height:1}.q.dis{opacity:.35;pointer-events:none}
+details.sec{margin-top:.6rem;border:1px solid var(--bd);border-radius:14px;background:#fbfdfb}
+details.sec>summary{list-style:none;cursor:pointer;padding:.7rem .8rem;font-weight:800;display:flex;justify-content:space-between;align-items:center;min-height:48px}
+details.sec>summary::-webkit-details-marker{display:none}details.sec>summary:after{content:'▾';color:var(--mu)}details.sec[open]>summary:after{content:'▴'}
+.secb{padding:0 .8rem .7rem}
+.ck{list-style:none;padding:0;margin:0}.ck li{border-top:1px dashed var(--bd)}
+.ck label{display:flex;gap:12px;align-items:center;padding:.6rem .1rem;font-weight:600;min-height:48px;cursor:pointer}
+.ck input{width:26px;height:26px;accent-color:var(--g);flex:0 0 auto}
+.gd p{margin:.3rem 0}.gd h4{margin:.6rem 0 .2rem;font-size:.92rem}.gd ul,.gd ol{margin:.2rem 0 .3rem 1.2rem;padding:0}.gd li{margin:.15rem 0}.gd .wr{background:#fff3e0;border-radius:10px;padding:.4rem .55rem;font-weight:600}
+textarea,input[type=text],select{width:100%;border:1px solid #b9c6bc;border-radius:12px;padding:.65rem .7rem;background:#fff}
+textarea{min-height:76px;resize:vertical}
+.timer{margin-top:.6rem;font-weight:800;font-size:1.05rem;text-align:center;background:#f1f8f1;border-radius:12px;padding:.45rem}.timer.late{color:var(--warn);background:#fff3e0}
+.done{margin-top:.5rem;color:var(--mu);font-size:.92rem}
+.empty{text-align:center;color:var(--mu);padding:36px 10px}
+.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:#fff;border:1px solid var(--bd);border-radius:16px;padding:.6rem .4rem;margin-bottom:12px;text-align:center;font-size:.8rem;color:var(--mu)}
+.sum b{display:block;font-size:1.15rem;color:var(--ink)}
+.next{background:var(--yel);border:1px solid #f1d27a;border-radius:16px;padding:.75rem .9rem;margin-bottom:12px;font-weight:700}
+.next.all{background:var(--gl);border-color:#a5d6a7}
+.shift{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.shift .st{flex:1;font-weight:800}
+.shift .big{margin-top:0}
+.msg{background:#e3f2fd;border:1px solid #90caf9;border-radius:16px;padding:.8rem .9rem;margin-bottom:12px}
+.msg .h{font-size:.85rem;font-weight:800;color:#0d47a1}.msg p{margin:.3rem 0 .2rem;font-weight:600;white-space:pre-wrap}
+.msg button{min-height:44px;border:0;border-radius:12px;background:#1565c0;color:#fff;font-weight:800;padding:0 1rem}
+h2{font-size:1.1rem;margin:.2rem 0 .7rem}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.seg button{min-height:64px;border:2px solid var(--bd);background:#fff;border-radius:16px;font-weight:800;font-size:1rem}
+.seg button[aria-pressed=true]{border-color:var(--g);background:var(--gl);color:var(--gd)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:.4rem 0 .8rem}
+.chip{min-height:44px;border:1px solid #b9c6bc;background:#fff;border-radius:999px;padding:0 .9rem;font-weight:700;font-size:.92rem}
+.chip[aria-pressed=true]{background:var(--gd);color:#fff;border-color:var(--gd)}
+label.lb{display:block;font-weight:800;margin:.7rem 0 .3rem}
+.ph{display:flex;align-items:center;gap:10px;margin-top:.6rem}.ph img{width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--bd)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.kpi div{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:.7rem .4rem;text-align:center;font-size:.82rem;color:var(--mu)}.kpi b{display:block;font-size:1.3rem;color:var(--ink)}
+.li{display:flex;justify-content:space-between;gap:10px;padding:.6rem .2rem;border-top:1px solid var(--bd)}.li:first-child{border-top:0}.li .r{text-align:right;white-space:nowrap;font-weight:700}
+.ev{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:.7rem .85rem;margin-bottom:10px}
+.ev.sos{background:#ffebee;border-color:#ef9a9a}.ev.iss{background:#fff8e1;border-color:#ffe082}
+.ev .h{display:flex;justify-content:space-between;gap:8px;font-weight:800}.ev .t{margin:.25rem 0;white-space:pre-wrap}.ev .m{font-size:.85rem;color:var(--mu)}
+.ev button{min-height:44px;border:1px solid var(--g);background:#fff;color:var(--gd);border-radius:12px;font-weight:800;padding:0 .9rem;margin-top:.4rem}
+.ev a{color:#0b57d0;font-weight:700}
+#mapc{height:calc(100vh - 230px);min-height:320px;border-radius:16px;border:1px solid var(--bd);overflow:hidden;background:#e9eee9}
+.mapbar{display:flex;align-items:center;gap:8px;margin-top:8px}.mapbar .i{flex:1;color:var(--mu);font-weight:700;font-size:.9rem}
+.mapbar button{min-height:48px;border:1px solid var(--bd);background:#fff;border-radius:14px;font-weight:800;padding:0 .9rem}
+.mpin{width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.4);display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}.mpin span{transform:rotate(45deg)}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--bd);display:flex;padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs button{flex:1;min-height:var(--tab);border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:.75rem;font-weight:700;color:var(--mu);position:relative}
+nav.tabs button span{font-size:1.4rem;line-height:1}nav.tabs button[aria-current=page]{color:var(--gd)}nav.tabs button[aria-current=page]:before{content:'';position:absolute;top:0;left:25%;right:25%;height:3px;border-radius:0 0 3px 3px;background:var(--g)}
+.badge{position:absolute;top:6px;right:calc(50% - 22px);min-width:18px;height:18px;border-radius:9px;background:var(--red);color:#fff;font-size:.7rem;display:grid;place-items:center;padding:0 4px}
+.toast{position:fixed;left:50%;bottom:calc(var(--tab) + 18px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#222;color:#fff;border-radius:14px;padding:.7rem 1rem;font-weight:700;display:none;z-index:40;max-width:92vw;text-align:center}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center}
+.modal.on{display:flex}
+.sheet{background:#fff;width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom))}
+.sheet h3{margin:0 0 .4rem;font-size:1.25rem}.sheet p{margin:.3rem 0 .6rem;color:var(--mu)}
+.lock{max-width:420px;margin:40px auto;background:#fff;border:1px solid var(--bd);border-radius:18px;padding:22px;text-align:center}
+.boss .cl{display:none!important}body:not(.boss) .bo{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style></head><body>
-<header><div class="top"><div class="cmp" id="cmp">🧭</div><div><h1>Μπούσουλας</h1><div class="sub" id="hello">Καθαρά Χέρια · πρόγραμμα ημέρας</div></div></div>
-<div class="nav"><button id="prev">‹</button><div class="d" id="dl"></div><button id="next">›</button><button id="today">Σήμερα</button><button id="mapb" title="Χάρτης & δρομολόγιο">🗺️</button></div>
-<div class="bar"><i id="pb"></i></div></header>
-<div id="mapbox" style="display:none;max-width:640px;margin:0 auto;padding:12px 12px 0"><div id="mapc" style="height:340px;border-radius:16px;border:1px solid var(--bd);overflow:hidden"></div><div class="row" style="margin-top:6px;align-items:center"><div id="mapinfo" class="sub" style="flex:1;color:var(--mu);font-weight:700"></div><button class="b" id="meb" style="flex:0 0 auto;padding:.4rem .7rem">📍 Πού είμαι</button></div></div>
-<main id="m"><div class="empty">Φόρτωση…</div></main>
-<div class="toast" id="toast"></div>
+<header><div class="ti"><h1 id="ttl">🧭 Μπούσουλας</h1><div class="sub" id="hello">Καθαρά Χέρια</div></div><button class="sos cl" id="sosb" type="button" aria-label="Έκτακτη ανάγκη">🆘 SOS</button></header>
+<p class="net" id="net" role="status" aria-live="polite"></p>
+<main>
+ <section class="view on" id="v-today" aria-label="Πρόγραμμα ημέρας">
+  <div class="day"><button type="button" id="prev" aria-label="Προηγούμενη μέρα">‹</button><div class="d" id="dl" aria-live="polite"></div><button type="button" id="next" aria-label="Επόμενη μέρα">›</button><button type="button" class="td" id="today">Σήμερα</button></div>
+  <div id="m"><div class="empty">Φόρτωση…</div></div>
+ </section>
+ <section class="view" id="v-map" aria-label="Χάρτης"><div id="mapc"></div><div class="mapbar"><div class="i" id="mapinfo"></div><button type="button" id="meb">📍 Πού είμαι</button></div></section>
+ <section class="view cl" id="v-help" aria-label="Υλικά και προβλήματα">
+  <h2>Χρειάζεσαι κάτι;</h2>
+  <div class="seg" role="group" aria-label="Είδος"><button type="button" id="t-mat" aria-pressed="true">🧴 Λείπει υλικό</button><button type="button" id="t-prb" aria-pressed="false">⚠️ Πρόβλημα</button></div>
+  <div class="card">
+   <div id="chipl" class="lb">Τι λείπει; (πάτα όσα ισχύουν)</div><div class="chips" id="chips"></div>
+   <label class="lb" for="h-job">Σε ποια δουλειά;</label><select id="h-job"></select>
+   <label class="lb" for="h-txt">Λίγα λόγια (προαιρετικά)</label><textarea id="h-txt" placeholder="π.χ. τελείωσε το χλώριο στην αποθήκη της πολυκατοικίας"></textarea>
+   <div class="ph"><label class="q" style="flex:0 0 120px"><span>📷</span>Φωτογραφία<input type="file" accept="image/*" capture="environment" id="h-ph" class="sr"></label><img id="h-img" alt="" hidden><button type="button" class="chip" id="h-phx" hidden>✕ Αφαίρεση</button></div>
+   <button type="button" class="big" id="h-send">📨 Αποστολή στον επόπτη</button>
+  </div>
+  <a class="big out" id="callsup" href="tel:+306933339735">📞 Κλήση στον επόπτη</a>
+  <button type="button" class="big red" id="sos2">🆘 Έκτακτη ανάγκη</button>
+ </section>
+ <section class="view bo" id="v-alerts" aria-label="Ειδοποιήσεις"><h2>🔔 Ειδοποιήσεις</h2><div id="alerts"></div></section>
+ <section class="view bo" id="v-msgs" aria-label="Μηνύματα"><h2>📩 Μήνυμα στην καθαρίστρια</h2><div class="card"><label class="lb" for="b-txt" style="margin-top:0">Το μήνυμα</label><textarea id="b-txt" placeholder="π.χ. Σήμερα το Γραφείο Παπαδόπουλου μετατίθεται στις 13:00"></textarea><button type="button" class="big" id="b-send">📨 Αποστολή</button></div><h2>Τελευταία μηνύματα</h2><div id="b-list"></div></section>
+ <section class="view" id="v-month" aria-label="Σύνοψη μήνα">
+  <div class="day"><button type="button" id="mprev" aria-label="Προηγούμενος μήνας">‹</button><div class="d" id="ml"></div><button type="button" id="mnext" aria-label="Επόμενος μήνας">›</button></div>
+  <div id="mm"><div class="empty">Φόρτωση…</div></div>
+ </section>
+</main>
+<nav class="tabs" aria-label="Μενού">
+ <button type="button" data-v="today" aria-current="page"><span>📋</span>Σήμερα</button>
+ <button type="button" data-v="map"><span>🗺️</span>Χάρτης</button>
+ <button type="button" data-v="help" class="cl"><span>🧴</span>Βοήθεια</button>
+ <button type="button" data-v="alerts" class="bo"><span>🔔</span>Ειδοποιήσεις<i class="badge" id="evb" hidden></i></button>
+ <button type="button" data-v="msgs" class="bo"><span>📩</span>Μήνυμα</button>
+ <button type="button" data-v="month"><span>📊</span>Μήνας</button>
+</nav>
+<div class="modal" id="sosm" role="dialog" aria-modal="true" aria-labelledby="sosh"><div class="sheet">
+ <h3 id="sosh">🆘 Έκτακτη ανάγκη</h3><p id="sosp">Πάτα το κόκκινο κουμπί. Ο επόπτης παίρνει αμέσως ειδοποίηση με τη θέση σου.</p>
+ <button type="button" class="big red" id="sosgo">🆘 Στείλε ειδοποίηση</button>
+ <div class="row2"><a class="big dk" href="tel:+306933339735">📞 Επόπτης</a><a class="big red" href="tel:112">📞 112</a></div>
+ <button type="button" class="big gray" id="sosx">Άκυρο</button>
+</div></div>
+<div class="toast" id="toast" role="status" aria-live="assertive"></div>
 <script>
 var API='https://script.google.com/macros/s/AKfycbxvrojn1ZwQ43SfOQnPQpS5RHVoUkOl8h2EzEpB3uyvsapOndwvPrk3DT8NsDpQuR3F/exec';
 var HP=new URLSearchParams((location.hash||'').replace(/^#/,'')),KEY=HP.get('k')||'',BKEY=HP.get('b')||'';
 if(KEY||BKEY){try{localStorage.setItem('bq_auth',location.hash);}catch(e){}}else{try{var sv=localStorage.getItem('bq_auth');if(sv){HP=new URLSearchParams(sv.replace(/^#/,''));KEY=HP.get('k')||'';BKEY=HP.get('b')||'';}}catch(e){}}
 var BOSS=!!BKEY;if(BOSS)KEY=BKEY;
-function R(s,f){this.s=s;this.f=f;}
-R.prototype.withSuccessHandler=function(s){return new R(s,this.f);};
-R.prototype.withFailureHandler=function(f){return new R(this.s,f);};
-R.prototype._go=function(p,body){var s=this.s,f=this.f||function(){};var o=body?{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)}:{};
- fetch(API+(p?'?'+new URLSearchParams(p):''),o).then(function(x){return x.json();}).then(function(j){if(j&&j.ok){s&&s(j.r);}else f({message:(j&&j.err)||'Σφάλμα'});}).catch(function(e){f({message:'Χωρίς σύνδεση – δοκίμασε ξανά'});});};
-R.prototype.kaAppData=function(k,d){this._go({kapi:1,k:k,d:d});};
-R.prototype.kaAppAct=function(k,id,a,n){this._go(null,{kind:'ka_app',k:k,id:id,act:a,note:n});};
-R.prototype.kaAppPhoto=function(k,id,data){this._go(null,{kind:'ka_app',k:k,id:id,act:'photo',data:data});};
-R.prototype.kaAppReceipt=function(k,id,data,name){this._go(null,{kind:'ka_app',k:k,id:id,act:'receipt',data:data,name:name});};
-var google={script:{run:new R()}};
-var D=null,DATA=null,TICK=null;
-var DN=['Κυριακή','Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'];
 var GD={"pol":{"lead":"Δουλεύουμε από τον τελευταίο όροφο προς την είσοδο, ώστε η σκόνη να κατεβαίνει και να μη λερώνουμε ό,τι καθαρίσαμε.","bring":["Σκούπα ή σκούπα με φαράσι","Σφουγγαρίστρα & κουβάς με στίφτη","Πανάκια μικροΐνης (2 χρώματα)","Καθαριστικό τζαμιών & γενικό καθαριστικό Καθαρά Χέρια","Πινακίδα «Βρεγμένο δάπεδο»","Σακούλες απορριμμάτων"],"steps":["Ανεβαίνετε με το ασανσέρ ή τη σκάλα στον τελευταίο όροφο.","Σε κάθε όροφο, από πάνω προς τα κάτω: ξεσκόνισμα κουπαστής και καγκέλων, διακόπτες και κουδούνια.","Σκούπισμα του πλατύσκαλου και των σκαλιών μέχρι τον επόμενο όροφο, πρώτα στις γωνίες.","Όταν φτάσετε στην είσοδο, ξανανεβαίνετε και σφουγγαρίζετε από πάνω προς τα κάτω, με την πινακίδα στην είσοδο.","Είσοδος: γραμματοκιβώτια, δαχτυλιές στα τζάμια και στην πόρτα, χαλάκι, πάτωμα.","Ασανσέρ (αν υπάρχει): καθρέφτης, ταμπλό και κουμπιά, πάτωμα καμπίνας, πόρτες.","Φωτογραφία τέλους από την είσοδο προς τη σκάλα."],"items":["Ξεσκόνισμα κουπαστών & καγκέλων","Διακόπτες & κουδούνια","Σκούπισμα σκάλας & πλατύσκαλων","Σφουγγάρισμα σκάλας & πλατύσκαλων","Είσοδος: πάτωμα & χαλάκι","Τζάμια & πόρτα εισόδου – δαχτυλιές","Γραμματοκιβώτια","Ασανσέρ: καθρέφτης, ταμπλό, πάτωμα (αν υπάρχει)"],"extra":[{"when":"2/εβδ","item":"Τζάμια εισόδου – πλήρες καθάρισμα (1 φορά την εβδομάδα)"},{"when":"9–16","item":"Πιλοτή / ράμπα – πλύσιμο (1 φορά τον μήνα, αν συμφωνήθηκε)"}],"check":["Δεν έμειναν νερά ή γλιστερά σκαλιά","Χαλάκι στη θέση του, πόρτα εισόδου κλειστή","Τίποτα δικό μας ξεχασμένο σε όροφο"]},"graf":{"lead":"Ο χώρος πρέπει να είναι έτοιμος για κοινό: πρώτα ό,τι πιάνουν τα χέρια, τελευταία το πάτωμα.","bring":["Πανάκια μικροΐνης (χρώμα για WC, χρώμα για επιφάνειες)","Σφουγγαρίστρα & κουβάς","Γενικό καθαριστικό, καθαριστικό τζαμιών, καθαριστικό WC Καθαρά Χέρια","Σακούλες απορριμμάτων"],"steps":["Άδειασμα όλων των κάδων και νέες σακούλες. Ανακυκλώσιμα χωριστά.","Ξεσκόνισμα γραφείων, ραφιών, πάγκων. Τα χαρτιά και οι οθόνες δεν μετακινούνται.","Πόμολα, διακόπτες, χερούλια, τηλέφωνα πάγκου.","Κουζινάκι: πάγκος, νεροχύτης, βρύση, εξωτερικά ψυγείου και καφετιέρας.","Τουαλέτα τελευταία από τις επιφάνειες: νιπτήρας, καθρέφτης, λεκάνη μέσα-έξω, αναλώσιμα (χαρτί, σαπούνι).","Δάπεδα: σκούπισμα και σφουγγάρισμα, από το βάθος προς την πόρτα.","Φωτογραφία τέλους από την είσοδο."],"items":["Άδειασμα κάδων & νέες σακούλες","Ξεσκόνισμα επιφανειών & γραφείων","Πόμολα, διακόπτες, χερούλια","Κουζινάκι: πάγκος & νεροχύτης","Τουαλέτα: λεκάνη, νιπτήρας, καθρέφτης, αναλώσιμα","Δάπεδα: σκούπισμα & σφουγγάρισμα"],"extra":[{"when":"2/εβδ","item":"Τζάμια βιτρίνας – εσωτερικά"}],"check":["Αναλώσιμα τουαλέτας γεμάτα – αν τελειώνουν, σημείωση","Φώτα και κλιματιστικό όπως τα βρήκατε","Συναγερμός / κλείδωμα όπως λένε οι οδηγίες"]},"gen":{"lead":"Δωμάτιο-δωμάτιο, από πάνω προς τα κάτω, με την κουζίνα πριν από το μπάνιο.","bring":["Ηλεκτρική σκούπα (αν δεν έχει ο πελάτης)","Πανάκια μικροΐνης σε 2 χρώματα","Σφουγγαρίστρα & κουβάς","Γενικό καθαριστικό, καθαριστικό τζαμιών, καθαριστικό μπάνιου Καθαρά Χέρια"],"steps":["Σύντομη βόλτα με τον πελάτη: τι θέλει οπωσδήποτε και τι δεν αγγίζουμε.","Ξεσκόνισμα σε όλα τα δωμάτια, από ψηλά (ράφια, κάδρα) προς τα κάτω (κομοδίνα, πόδια επίπλων).","Κουζίνα: πάγκοι, εστίες, νεροχύτης, πρόσοψη ντουλαπιών, εξωτερικά συσκευών.","Μπάνιο: νιπτήρας, καθρέφτης, ντουζιέρα ή μπανιέρα, πλακάκια γύρω, λεκάνη τελευταία.","Πόμολα και διακόπτες σε όλο το σπίτι.","Τζάμια μόνο αν συμφωνήθηκε στην κράτηση.","Δάπεδα: σκούπισμα και σφουγγάρισμα, από το πιο απομακρυσμένο δωμάτιο προς την έξοδο.","Άδειασμα κάδων και φωτογραφία τέλους."],"items":["Ξεσκόνισμα (πάνω → κάτω)","Κουζίνα: πάγκοι, εστίες, νεροχύτης, ντουλάπια","Μπάνιο: νιπτήρας, ντους/μπανιέρα, πλακάκια, λεκάνη","Πόμολα & διακόπτες","Δάπεδα: σκούπισμα & σφουγγάρισμα","Τζάμια (αν συμφωνήθηκε)","Άδειασμα κάδων"],"extra":[],"check":["Ο πελάτης (αν είναι εκεί) βλέπει κουζίνα και μπάνιο πριν φύγετε","Τίποτα δικό του μετακινημένο χωρίς λόγο","Παράθυρα κλειστά, φώτα σβηστά"]},"ana":{"lead":"Η σκόνη της οικοδομής ξανακάθεται: πρώτα τη μαζεύουμε στεγνά, μετά πλένουμε, και τα δάπεδα θέλουν δύο περάσματα.","bring":["Ηλεκτρική σκούπα με καλό φίλτρο","Ξύστρα τζαμιών (μόνο για τζάμια)","Πολλά πανάκια μικροΐνης","Σφουγγαρίστρα, 2 κουβάδες","Γενικό καθαριστικό, καθαριστικό τζαμιών Καθαρά Χέρια","Μάσκα σκόνης"],"steps":["Στεγνή απομάκρυνση σκόνης με ηλεκτρική σκούπα: ταβάνια και γωνίες, κουφώματα, ράγες, πρεβάζια, ντουλάπια μέσα-έξω.","Τζάμια και κουφώματα: υπολείμματα μπογιάς ή σιλικόνης με την ξύστρα, μόνο σε τζάμι και πάντα βρεγμένο.","Πλακάκια και αρμοί σε κουζίνα και μπάνιο.","Κουζίνα και μπάνιο όπως στον γενικό καθαρισμό.","Δάπεδα: πρώτο πέρασμα για τη λευκή σκόνη, άλλαγμα νερού, δεύτερο πέρασμα.","Φωτογραφία τέλους στο κάθε δωμάτιο."],"items":["Σκόνη: ηλεκτρική σκούπα σε γωνίες, κουφώματα, ράγες","Τζάμια & κουφώματα (υπολείμματα με ξύστρα)","Πλακάκια & αρμοί","Κουζίνα & μπάνιο","Δάπεδα: 2 περάσματα"],"extra":[],"check":["Δεν μένει λευκό «πέπλο» στο πάτωμα όταν το κοιτάτε κόντρα στο φως","Τζάμια χωρίς γρατζουνιές από την ξύστρα","Μπάζα ή υλικά του συνεργείου: δεν τα πετάμε, σημείωση στον πελάτη"]},"ora":{"lead":"Ο πελάτης ορίζει τι γίνεται. Εμείς βάζουμε προτεραιότητες ώστε να χωρέσουν στις ώρες που πλήρωσε.","bring":["Ό,τι χρειάζεται για τις εργασίες που ζήτησε – δείτε τις οδηγίες της δουλειάς","Βασικό σετ: πανάκια, σφουγγαρίστρα, γενικό καθαριστικό Καθαρά Χέρια"],"steps":["Στην αρχή επιβεβαιώνετε με τον πελάτη τι θέλει και με ποια σειρά.","Αν δεν χωράνε όλα στις ώρες, του το λέτε από την αρχή και ρωτάτε τι προηγείται.","Δουλεύετε με τους γενικούς κανόνες: πάνω → κάτω, καθαρό → βρώμικο, πάτωμα τελευταίο.","10 λεπτά πριν τη λήξη ενημερώνετε τον πελάτη τι έγινε και τι έμεινε.","Φωτογραφία τέλους."],"items":["Οδηγίες πελάτη – επιβεβαίωση στην αρχή","Εργασίες που ζητήθηκαν","Ενημέρωση πελάτη στο τέλος"],"extra":[],"check":["Ό,τι δεν πρόλαβε να γίνει γράφεται στη σημείωση","Δεν ξεπερνάμε τις ώρες χωρίς έγκριση του πελάτη"]}};
-var PH='📷 Φωτογραφία τέλους',CK={},CKJ={};Object.keys(GD).forEach(function(k){CK[k]=GD[k].items.concat([PH]);});
-function ckList(j){var k=kind(j.svc),s=j.svc||'',L=GD[k].items.slice();GD[k].extra.forEach(function(x){if((x.when==='2/εβδ'&&/2\s*\/\s*εβδ|2 φορές/.test(s))||(x.when==='9–16'&&/9\s*[–-]\s*16/.test(s)))L.push(x.item);});L.push(PH);return L;}
-function guide(k){var g=GD[k],li=function(a){return a.map(function(t){return '<li>'+esc(t)+'</li>';}).join('');};return '<details class="gd"><summary>📖 Οδηγός εργασίας</summary><p>'+esc(g.lead)+'</p><h4>🧰 Τι παίρνεις μαζί</h4><ul>'+li(g.bring)+'</ul><h4>👣 Βήματα</h4><ol>'+li(g.steps)+'</ol><h4>🔎 Πριν φύγεις</h4><ul>'+li(g.check)+'</ul><p class="wr">⚠️ Ποτέ χλώριο μαζί με άλλο καθαριστικό, ξύδι ή αμμωνία. Γάντια πάντα· πινακίδα «Βρεγμένο δάπεδο» όπου περνά κόσμος.</p></details>';}
-function kind(s){s=s||'';return /Πολυκατ/.test(s)?'pol':/Γραφ|κατάστ/.test(s)?'graf':/ανακαίν|μετακόμ/i.test(s)?'ana':/ώρα/.test(s)?'ora':'gen';}
+var PH='📷 Φωτογραφία τέλους';
+var MAT=['Χλώριο','Γενικό καθαριστικό','Καθαριστικό τζαμιών','Καθαριστικό WC','Σακούλες σκουπιδιών','Γάντια','Πανάκια','Χαρτί υγείας / κουζίνας','Σαπούνι χεριών'];
+var PRB=['Δεν μου άνοιξαν','Δεν βρήκα κλειδί','Χωρίς νερό / ρεύμα','Χαλασμένη λάμπα','Βρήκα ζημιά','Θα αργήσω','Ο πελάτης ζήτησε κάτι άλλο'];
+var DN=['Κυριακή','Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'],MN=['Ιανουάριος','Φεβρουάριος','Μάρτιος','Απρίλιος','Μάιος','Ιούνιος','Ιούλιος','Αύγουστος','Σεπτέμβριος','Οκτώβριος','Νοέμβριος','Δεκέμβριος'];
+var D=null,DATA=null,VIEW='today',MON=null,HT='mat',HSEL={},HPH=null,BUSY=false,CKJ={};
+var $=function(i){return document.getElementById(i);};
+var S={get:function(k){try{return localStorage.getItem(k);}catch(e){return null;}},set:function(k,v){try{localStorage.setItem(k,v);return true;}catch(e){return false;}},del:function(k){try{localStorage.removeItem(k);}catch(e){}}};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function ymd(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
 function pd(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2]);}
 function mins(t){var p=(t||'0:0').split(':');return (+p[0])*60+(+p[1]);}
 function hm(m){m=Math.round(m);return ('0'+Math.floor(m/60)).slice(-2)+':'+('0'+(m%60)).slice(-2);}
-function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function toast(t){var e=document.getElementById('toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(function(){e.style.display='none';},2200);}
-function ckKey(id){return 'ck_'+id;}
-function getCk(id){try{return JSON.parse(localStorage.getItem(ckKey(id))||'{}');}catch(e){return {};}}
-function setCk(id,o){try{localStorage.setItem(ckKey(id),JSON.stringify(o));}catch(e){}}
-function load(d,quiet){D=d;if(!quiet)document.getElementById('m').innerHTML='<div class="empty">Φόρτωση…</div>';
- google.script.run.withSuccessHandler(render).withFailureHandler(function(e){document.getElementById('m').innerHTML='<div class="empty">⚠️ '+esc(e.message||e)+'</div>';}).kaAppData(KEY,d);}
-function act(id,a,n){google.script.run.withSuccessHandler(function(r){render(r);toast(a==='start'?'▶️ Καλή δουλειά!':a==='done'?'✅ Μπράβο! Ολοκληρώθηκε':'Αποθηκεύτηκε');}).withFailureHandler(function(e){toast('⚠️ '+(e.message||e));}).kaAppAct(KEY,id,a,n);}
-function photo(id,inp){var f=inp.files&&inp.files[0];if(!f)return;toast('📷 Ανέβασμα…');var fr=new FileReader();fr.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,1600/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
- google.script.run.withSuccessHandler(function(r){var o=getCk(id);o['📷 Φωτογραφία τέλους']=1;setCk(id,o);render(r);toast('📷 Η φωτογραφία ανέβηκε');}).withFailureHandler(function(e){toast('⚠️ '+(e.message||e));}).kaAppPhoto(KEY,id,c.toDataURL('image/jpeg',0.8));};im.src=fr.result;};fr.readAsDataURL(f);}
-function render(r){DATA=r;var d=pd(r.date),isToday=r.date===ymd(new Date());
- document.getElementById('dl').textContent=(isToday?'Σήμερα · ':'')+DN[d.getDay()]+' '+d.getDate()+'/'+(d.getMonth()+1);
- var J=r.jobs,done=J.filter(function(j){return /✅/.test(j.status);}).length,tot=J.reduce(function(a,j){return a+j.dur;},0);
- document.getElementById('pb').style.width=(J.length?100*done/J.length:0)+'%';
- var h='';if(!J.length){h='<div class="empty">🌿 Καμία εργασία για αυτή τη μέρα.<br>Καλή ξεκούραση!</div>';}
- else{var end=J[J.length-1];h+='<div class="sum"><div><b>'+J.length+'</b>εργασίες</div><div><b>'+tot+' ώρ.</b>σύνολο</div><div><b>'+done+'/'+J.length+'</b>έτοιμες</div><div><b>'+hm(mins(end.start)+end.dur*60)+'</b>τέλος</div></div>';
-  if(isToday){var nx=J.filter(function(j){return !/✅/.test(j.status);})[0];if(nx){var dm=mins(nx.start)-mins(r.now);h+='<div class="next">🧭 Επόμενο: '+esc(nx.name)+' · '+nx.start+(dm>0?' (σε '+(dm>=60?Math.floor(dm/60)+' ώρ. ':'')+(dm%60)+' λεπτά)':' – ώρα να ξεκινήσεις')+'</div>';}else h+='<div class="next" style="background:#e8f5e9;border-color:#a5d6a7">🎉 Όλες οι εργασίες ολοκληρώθηκαν!</div>';}
-  J.forEach(function(j){var k=kind(j.svc),ck=getCk(j.id),run=/εξέλιξη/.test(j.status),ok=/✅/.test(j.status),q=encodeURIComponent(j.addr+' Φλώρινα');
-   h+='<div class="card'+(run?' run':'')+(ok?' ok':'')+'"><span class="st">'+esc(j.status)+'</span><div class="tm">'+j.start+'–'+hm(mins(j.start)+j.dur*60)+' <small>('+j.dur+' ώρ.)</small></div><div class="nm">'+esc(j.name)+'</div><div class="ad">📍 '+esc(j.addr||'—')+'</div><span class="svc">'+esc(j.svc)+'</span>'+(j.notes?'<div class="nt">🔑 '+esc(j.notes)+'</div>':'');
-   h+='<div class="row"><a class="b" href="https://www.google.com/maps/dir/?api=1&destination='+q+'" target="_blank">🧭 Πλοήγηση</a>'+(j.tel?'<a class="b" href="tel:'+esc(j.tel.replace(/\s/g,''))+'">📞 Κλήση</a>':'')+'<label class="b">📷 Φωτογραφία<input type="file" accept="image/*" capture="environment" style="display:none" onchange="photo(\''+j.id+'\',this)"></label></div>';
-   if(run){var el=mins(r.now)-mins(j.t0);h+='<div class="timer" data-t0="'+j.t0+'" data-dur="'+j.dur+'"></div>';}
-   h+=guide(k)+'<ul class="ck">'+(CKJ[j.id]=ckList(j)).map(function(t){return '<li><input type="checkbox" '+(ck[t]?'checked':'')+' onchange="tick(\''+j.id+'\',this,\''+t.replace(/'/g,"\\'")+'\')"><span>'+esc(t)+'</span></li>';}).join('')+'</ul>';
-   if(!run&&!ok)h+='<div class="row"><button class="b go" onclick="act(\''+j.id+'\',\'start\')">▶️ Ξεκινάω</button></div>';
-   if(run)h+='<div class="row"><button class="b done" onclick="finish(\''+j.id+'\',\''+k+'\')">✅ Τελείωσα</button></div>';
-   if(ok)h+='<div class="sub" style="margin-top:.5rem;color:var(--mu)">⏱ '+(j.hasT0?j.t0:'')+(j.hasT1?' → '+j.t1:'')+(j.photos?' · 📷 φωτογραφίες ✓':'')+'</div>';
-   if(BOSS)h+='<div class="row"><label class="b rc">🧾 '+(j.receipt?'Παραστατικό ✓ (αλλαγή)':'Ανέβασμα παραστατικού')+'<input type="file" accept="application/pdf,image/*" style="display:none" onchange="receipt(\''+j.id+'\',this)"></label></div>'+(j.sent?'<div class="sub" style="color:#1b5e20;font-weight:700">📧 Αναφορά στον πελάτη: '+esc(j.sent)+'</div>':(j.email?'':'<div class="sub" style="color:#a12622">Χωρίς email πελάτη</div>'));
-   h+='<textarea rows="2" placeholder="Σημείωση (π.χ. χαλασμένη λάμπα στον 2ο)" onchange="act(\''+j.id+'\',\'note\',this.value)">'+esc(j.cnote)+'</textarea></div>';});}
- document.getElementById('m').innerHTML=h;tickTimers();mapDraw();}
+function nowHm(){var n=new Date();return ('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2);}
+function hrs(m){return (Math.round(m/6)/10).toString().replace('.',',');}
+function toast(t,ms){var e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(function(){e.style.display='none';},ms||2600);}
+function qid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8);}
+function kind(s){s=s||'';return /Πολυκατ/.test(s)?'pol':/Γραφ|κατάστ/.test(s)?'graf':/ανακαίν|μετακόμ/i.test(s)?'ana':/ώρα/.test(s)?'ora':'gen';}
+function ckList(j){var k=kind(j.svc),s=j.svc||'',L=GD[k].items.slice();GD[k].extra.forEach(function(x){if((x.when==='2/εβδ'&&/2\s*\/\s*εβδ|2 φορές/.test(s))||(x.when==='9–16'&&/9\s*[–-]\s*16/.test(s)))L.push(x.item);});L.push(PH);return L;}
+function getCk(id){try{return JSON.parse(S.get('ck_'+id)||'{}');}catch(e){return {};}}
+function setCk(id,o){S.set('ck_'+id,JSON.stringify(o));}
+function dist(a,b,c,d){var R=6371000,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
+function getPos(cb){if(!navigator.geolocation)return cb(null);var done=false,t=setTimeout(function(){if(!done){done=true;cb(null);}},9000);
+ navigator.geolocation.getCurrentPosition(function(p){if(done)return;done=true;clearTimeout(t);cb({lat:+p.coords.latitude.toFixed(6),lon:+p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy)});},function(){if(done)return;done=true;clearTimeout(t);cb(null);},{enableHighAccuracy:true,timeout:8500,maximumAge:60000});}
+function jobById(id){return DATA&&DATA.jobs.filter(function(j){return j.id===id;})[0];}
 
-var MAPON=false,MP=null,ML=null,MR=null,MRK='',ME=null;
-function loadLeaflet(cb){if(window.L)return cb();var l=document.createElement('link');l.rel='stylesheet';l.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(l);var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';s.onload=cb;s.onerror=function(){document.getElementById('mapinfo').textContent='⚠️ Ο χάρτης δεν φόρτωσε – ελέγξτε τη σύνδεση';};document.head.appendChild(s);}
+/* ---------- δίκτυο & ουρά χωρίς internet ---------- */
+function getQ(){try{return JSON.parse(S.get('bq_q')||'[]');}catch(e){return [];}}
+function setQ(q){if(!S.set('bq_q',JSON.stringify(q))){toast('⚠️ Γέμισε η μνήμη αναμονής – βρες σήμα για να σταλούν');return false;}netBar();return true;}
+function post(body){return fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)}).then(function(x){return x.json();});}
+function send(body,okMsg){body.k=KEY;body.qid=qid();body.ts=Date.now();body.d=body.d||D||ymd(new Date());
+ if(getQ().length||navigator.onLine===false){queue(body);return;}
+ BUSY=true;netBar();post(body).then(function(j){BUSY=false;if(j&&j.ok){gotData(j.r);if(okMsg)toast(okMsg);}else{toast('⚠️ '+((j&&j.err)||'Σφάλμα'));load(D,1);}netBar();})
+  .catch(function(){BUSY=false;queue(body);});}
+function queue(body){var q=getQ();q.push(body);if(!setQ(q))return;applyLocal(body);toast('📴 Χωρίς σήμα – αποθηκεύτηκε και θα σταλεί μόνο του',3500);}
+function flush(){if(BUSY||navigator.onLine===false)return;var q=getQ();if(!q.length)return;BUSY=true;netBar();
+ post(q[0]).then(function(j){var q2=getQ();q2.shift();setQ(q2);BUSY=false;if(j&&j.ok){if(!q2.length){gotData(j.r);toast('✅ Στάλθηκαν όσα περίμεναν');}}else toast('⚠️ Δεν δέχτηκε: '+((j&&j.err)||'σφάλμα'));
+  if(q2.length)flush();else{netBar();load(D,1);}}).catch(function(){BUSY=false;netBar();});}
+function netBar(){var e=$('net'),n=getQ().length,off=navigator.onLine===false;
+ if(BUSY&&!n){e.className='net';return;}
+ if(n){e.className='net on'+(off?'':' sync');e.textContent=(off?'📴 Χωρίς σήμα · ':'⏳ Αποστολή · ')+n+(n===1?' ενέργεια περιμένει':' ενέργειες περιμένουν');}
+ else if(off){e.className='net on';e.textContent='📴 Χωρίς σήμα · βλέπεις το πρόγραμμα από τη μνήμη';}
+ else e.className='net';}
+function applyLocal(b){if(!DATA)return;var j=b.id&&jobById(b.id),x=DATA.x=DATA.x||{};
+ if(b.act==='start'&&j){j.status='🧹 Σε εξέλιξη';j.t0=b.at;j.hasT0=true;}
+ if(b.act==='done'&&j){j.status='✅ Ολοκληρώθηκε';j.t1=b.at;j.hasT1=true;}
+ if(b.act==='note'&&j)j.cnote=b.note;
+ if(b.act==='photo'&&j)j.photos=j.photos||'📷 (σε αναμονή)';
+ if(b.act==='shift'){x.shift=b.mode==='in'?{on:true,since:b.at,end:''}:{on:false,since:(x.shift||{}).since||'',end:b.at};}
+ if(b.act==='read')(x.msgs||[]).forEach(function(m){m.read=true;});
+ cache(DATA);render();}
+function cache(r){if(r&&r.date)S.set('bq_d_'+r.date,JSON.stringify({at:nowHm(),r:r}));}
+function gotData(r){if(!r)return;cache(r);if(!D||r.date===D){DATA=r;render();}}
+function load(d,quiet){D=d||D||ymd(new Date());if(!quiet&&!DATA)$('m').innerHTML='<div class="empty">Φόρτωση…</div>';
+ fetch(API+'?'+new URLSearchParams({kapi:1,k:KEY,d:D})).then(function(x){return x.json();}).then(function(j){if(j&&j.ok){if(j.r.date===D){DATA=j.r;cache(j.r);render();}}else $('m').innerHTML='<div class="empty">⚠️ '+esc((j&&j.err)||'Σφάλμα')+'</div>';})
+  .catch(function(){var c=null;try{c=JSON.parse(S.get('bq_d_'+D)||'null');}catch(e){}if(c&&c.r){DATA=c.r;render();var e=$('net');e.className='net on';e.textContent='📴 Χωρίς σύνδεση · πρόγραμμα από τη μνήμη ('+c.at+')';}else if(!quiet)$('m').innerHTML='<div class="empty">📴 Χωρίς σύνδεση.<br>Το πρόγραμμα αυτής της μέρας δεν έχει αποθηκευτεί στη συσκευή.</div>';});}
+
+/* ---------- οθόνη ημέρας ---------- */
+function guide(k){var g=GD[k],li=function(a){return a.map(function(t){return '<li>'+esc(t)+'</li>';}).join('');};
+ return '<details class="sec gd"><summary>📖 Οδηγός εργασίας</summary><div class="secb"><p>'+esc(g.lead)+'</p><h4>🧰 Τι παίρνεις μαζί</h4><ul>'+li(g.bring)+'</ul><h4>👣 Βήματα</h4><ol>'+li(g.steps)+'</ol><h4>🔎 Πριν φύγεις</h4><ul>'+li(g.check)+'</ul><p class="wr">⚠️ Ποτέ χλώριο μαζί με άλλο καθαριστικό, ξύδι ή αμμωνία. Γάντια πάντα· πινακίδα «Βρεγμένο δάπεδο» όπου περνά κόσμος.</p></div></details>';}
+function render(){if(!DATA)return;var r=DATA,x=r.x||{},d=pd(r.date),isToday=r.date===ymd(new Date());
+ $('dl').textContent=(isToday?'Σήμερα · ':'')+DN[d.getDay()]+' '+d.getDate()+'/'+(d.getMonth()+1);
+ var J=r.jobs,done=J.filter(function(j){return /✅/.test(j.status);}).length,tot=J.reduce(function(a,j){return a+j.dur;},0),h='';
+ if(!BOSS){(x.msgs||[]).filter(function(m){return !m.read;}).forEach(function(m,i,a){h+='<div class="msg" role="alert"><div class="h">📩 Μήνυμα από τον επόπτη · '+esc(m.at)+'</div><p>'+esc(m.text)+'</p>'+(i===a.length-1?'<button type="button" onclick="readMsgs()">👍 Το είδα</button>':'')+'</div>';});}
+ if(isToday){var sh=x.shift||{};
+  if(BOSS)h+='<div class="card shift"><div class="st">'+(sh.on?'🟢 Σε βάρδια από '+esc(sh.since):sh.end?'🔴 Η βάρδια έκλεισε στις '+esc(sh.end):'⚪ Δεν έχει ξεκινήσει βάρδια')+'</div></div>';
+  else if(sh.on)h+='<div class="card shift"><div class="st">🟢 Σε βάρδια από '+esc(sh.since)+'</div><button type="button" class="big out" style="width:auto;padding:0 1rem;min-height:48px;font-size:1rem" onclick="shift(\'out\')">🔴 Τέλος βάρδιας</button></div>';
+  else h+='<div class="card"><div class="st" style="font-weight:800">'+(sh.end?'Η βάρδια έκλεισε στις '+esc(sh.end)+'. Καλή ξεκούραση! 🌿':'Καλώς ήρθες! Πάτα μόλις ξεκινήσεις για δουλειά.')+'</div><button type="button" class="big" onclick="shift(\'in\')">🟢 '+(sh.end?'Νέα έναρξη βάρδιας':'Ξεκινώ βάρδια')+'</button></div>';}
+ if(!J.length)h+='<div class="empty">🌿 Καμία εργασία για αυτή τη μέρα.</div>';
+ else{var end=J[J.length-1];h+='<div class="sum"><div><b>'+J.length+'</b>εργασίες</div><div><b>'+String(tot).replace('.',',')+' ώρ.</b>σύνολο</div><div><b>'+done+'/'+J.length+'</b>έτοιμες</div><div><b>'+hm(mins(end.start)+end.dur*60)+'</b>τέλος</div></div>';
+  if(isToday){var nx=J.filter(function(j){return !/✅/.test(j.status);})[0];if(nx){var dm=mins(nx.start)-mins(nowHm());h+='<div class="next">🧭 Επόμενο: '+esc(nx.name)+' · '+nx.start+(/εξέλιξη/.test(nx.status)?' – σε εξέλιξη':dm>0?' (σε '+(dm>=60?Math.floor(dm/60)+' ώρ. ':'')+(dm%60)+' λεπτά)':' – ώρα να ξεκινήσεις')+'</div>';}else h+='<div class="next all">🎉 Όλες οι εργασίες της μέρας ολοκληρώθηκαν!</div>';}
+  J.forEach(function(j){h+=card(j,isToday);});}
+ $('m').innerHTML=h;tickTimers();if(VIEW==='map')mapDraw();if(BOSS)renderBoss();fillJobs();}
+function card(j,isToday){var k=kind(j.svc),ck=getCk(j.id),run=/εξέλιξη/.test(j.status),ok=/✅/.test(j.status),q=encodeURIComponent(j.addr+' Φλώρινα'),L=CKJ[j.id]=ckList(j),n=L.filter(function(t){return ck[t];}).length,h='';
+ h+='<article class="card'+(run?' run':'')+(ok?' ok':'')+'"><div class="ch"><div class="time">'+j.start+'–'+hm(mins(j.start)+j.dur*60)+' <small>('+String(j.dur).replace('.',',')+' ώρ.)</small></div><span class="pill'+(run?' run':ok?' ok':'')+'">'+esc(j.status)+'</span></div>';
+ h+='<div class="nm">'+esc(j.name)+'</div><div class="ad">📍 '+esc(j.addr||'—')+'</div><span class="svc">'+esc(j.svc)+'</span>'+(j.notes?'<div class="nt">🔑 '+esc(j.notes)+'</div>':'');
+ if(run)h+='<div class="timer" data-t0="'+j.t0+'" data-dur="'+j.dur+'"></div>';
+ if(!BOSS){if(!run&&!ok)h+='<button type="button" class="big" onclick="start(\''+j.id+'\')">▶️ Ξεκινάω</button>';
+  if(run)h+='<button type="button" class="big dk" onclick="finish(\''+j.id+'\')">✅ Τελείωσα</button>';}
+ if(ok)h+='<div class="done">⏱ '+(j.hasT0?j.t0:'—')+(j.hasT1?' → '+j.t1:'')+(j.photos?' · 📷 φωτογραφίες ✓':' · χωρίς φωτογραφία')+'</div>';
+ h+='<div class="quick"><a class="q" href="https://www.google.com/maps/dir/?api=1&destination='+(j.lat!=null?j.lat+','+j.lon:q)+'" target="_blank" rel="noopener"><span>🧭</span>Πλοήγηση</a>'+(j.tel?'<a class="q" href="tel:'+esc(j.tel.replace(/\s/g,''))+'"><span>📞</span>Κλήση</a>':'<span class="q dis"><span>📞</span>Κλήση</span>')+
+  (BOSS?'<span class="q dis"><span>📷</span>'+(j.photos?'Φωτό ✓':'Φωτό')+'</span><span class="q dis"><span>⚠️</span>Πρόβλημα</span>':'<label class="q"><span>📷</span>Φωτό<input type="file" accept="image/*" capture="environment" class="sr" onchange="photo(\''+j.id+'\',this)"></label><button type="button" class="q" onclick="helpFor(\''+j.id+'\')"><span>⚠️</span>Πρόβλημα</button>')+'</div>';
+ if(!ok||BOSS)h+='<details class="sec"'+(run&&!BOSS?' open':'')+'><summary>📋 Λίστα ελέγχου <span class="pill">'+n+'/'+L.length+'</span></summary><div class="secb"><ul class="ck">'+L.map(function(t,i){return '<li><label><input type="checkbox" '+(ck[t]?'checked ':'')+(BOSS?'disabled ':'')+'onchange="tick(\''+j.id+'\','+i+',this)"><span>'+esc(t)+'</span></label></li>';}).join('')+'</ul></div></details>';
+ if(!ok&&!BOSS)h+=guide(k);
+ if(BOSS)h+=(j.cnote?'<div class="nt">📝 '+esc(j.cnote)+'</div>':'')+'<label class="big out" style="cursor:pointer">🧾 '+(j.receipt?'Παραστατικό ✓ (αλλαγή)':'Ανέβασμα παραστατικού')+'<input type="file" accept="application/pdf,image/*" class="sr" onchange="receipt(\''+j.id+'\',this)"></label>'+(j.sent?'<div class="done" style="color:var(--gd);font-weight:700">📧 Αναφορά στον πελάτη: '+esc(j.sent)+'</div>':(j.email?'':'<div class="done" style="color:#a12622">Χωρίς email πελάτη</div>'));
+ else h+='<details class="sec"'+(j.cnote?' open':'')+'><summary>📝 Σημείωση</summary><div class="secb"><textarea aria-label="Σημείωση για '+esc(j.name)+'" placeholder="π.χ. χαλασμένη λάμπα στον 2ο" onchange="note(\''+j.id+'\',this.value)">'+esc(j.cnote)+'</textarea></div></details>';
+ return h+'</article>';}
+function tickTimers(){[].forEach.call(document.querySelectorAll('.timer'),function(e){var el=mins(nowHm())-mins(e.getAttribute('data-t0')),pl=+e.getAttribute('data-dur')*60;if(el<0)el=0;e.textContent='⏱ '+el+' από '+pl+' λεπτά'+(el>pl?' – πάνω από τον χρόνο':'');e.className='timer'+(el>pl?' late':'');});}
+function tick(id,i,el){var t=CKJ[id][i],o=getCk(id);o[t]=el.checked?1:0;setCk(id,o);var L=CKJ[id],n=L.filter(function(x){return o[x];}).length,p=el.closest('details').querySelector('summary .pill');if(p)p.textContent=n+'/'+L.length;}
+
+/* ---------- ενέργειες καθαρίστριας ---------- */
+function start(id){var j=jobById(id);toast('📍 Βρίσκω τη θέση σου…');getPos(function(p){var b={act:'start',id:id,at:nowHm()};
+ if(p){b.lat=p.lat;b.lon=p.lon;b.acc=p.acc;if(j&&j.lat!=null){b.dist=Math.round(dist(p.lat,p.lon,j.lat,j.lon));if(b.dist>300&&!confirm('Φαίνεται ότι είσαι περίπου '+(b.dist>=1000?(b.dist/1000).toFixed(1).replace('.',',')+' km':b.dist+' μέτρα')+' μακριά από τη διεύθυνση.\n\nΝα ξεκινήσει η εργασία έτσι κι αλλιώς;'))return;}}
+ send(b,'▶️ Καλή δουλειά!');});}
+function finish(id){var L=CKJ[id]||[],o=getCk(id),miss=L.filter(function(t){return !o[t];});
+ if(miss.length&&!confirm('Δεν έχεις τσεκάρει:\n• '+miss.join('\n• ')+'\n\nΝα το κλείσω έτσι κι αλλιώς;'))return;
+ getPos(function(p){var j=jobById(id),b={act:'done',id:id,at:nowHm(),note:L.filter(function(t){return o[t];}).join(' | ')};if(p){b.lat=p.lat;b.lon=p.lon;b.acc=p.acc;if(j&&j.lat!=null)b.dist=Math.round(dist(p.lat,p.lon,j.lat,j.lon));}send(b,'✅ Μπράβο! Ολοκληρώθηκε');});}
+function note(id,v){send({act:'note',id:id,note:v},'📝 Η σημείωση αποθηκεύτηκε');}
+function shift(m){if(m==='out'&&!confirm('Να κλείσει η βάρδια;'))return;toast('📍 Βρίσκω τη θέση σου…');getPos(function(p){var b={act:'shift',mode:m,at:nowHm()};if(p){b.lat=p.lat;b.lon=p.lon;b.acc=p.acc;}send(b,m==='in'?'🟢 Καλή βάρδια!':'🔴 Η βάρδια έκλεισε. Καλή ξεκούραση!');});}
+function readMsgs(){send({act:'read'},'👍');}
+function shrink(f,max,q,cb){var fr=new FileReader();fr.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',q));};im.onerror=function(){toast('⚠️ Η φωτογραφία δεν διαβάστηκε');};im.src=fr.result;};fr.readAsDataURL(f);}
+function photo(id,inp){var f=inp.files&&inp.files[0];if(!f)return;toast('📷 Ανέβασμα…');shrink(f,1400,.75,function(u){var o=getCk(id);o[PH]=1;setCk(id,o);send({act:'photo',id:id,data:u},'📷 Η φωτογραφία ανέβηκε');});inp.value='';}
+
+/* ---------- βοήθεια: υλικά / προβλήματα ---------- */
+function setHT(t){HT=t;HSEL={};$('t-mat').setAttribute('aria-pressed',t==='mat');$('t-prb').setAttribute('aria-pressed',t==='prb');$('chipl').textContent=t==='mat'?'Τι λείπει; (πάτα όσα ισχύουν)':'Τι συμβαίνει;';
+ $('chips').innerHTML=(t==='mat'?MAT:PRB).map(function(c,i){return '<button type="button" class="chip" aria-pressed="false" data-i="'+i+'">'+esc(c)+'</button>';}).join('');
+ $('h-txt').placeholder=t==='mat'?'π.χ. τελείωσε το χλώριο στην αποθήκη της πολυκατοικίας':'π.χ. η πόρτα της εισόδου δεν κλείνει';}
+$('chips').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);HSEL[b.textContent]=on;});
+$('t-mat').onclick=function(){setHT('mat');};$('t-prb').onclick=function(){setHT('prb');};
+function fillJobs(){var s=$('h-job'),v=s.value,J=(DATA&&DATA.date===ymd(new Date())?DATA.jobs:[]);s.innerHTML='<option value="">— Γενικά / καμία συγκεκριμένη —</option>'+J.map(function(j){return '<option value="'+esc(j.id)+'">'+esc(j.start+' · '+j.name)+'</option>';}).join('');s.value=v;}
+function helpFor(id){fillJobs();$('h-job').value=id;setHT('prb');show('help');}
+$('h-ph').onchange=function(){var f=this.files&&this.files[0];if(!f)return;shrink(f,1280,.7,function(u){HPH=u;$('h-img').src=u;$('h-img').hidden=false;$('h-phx').hidden=false;});this.value='';};
+$('h-phx').onclick=function(){HPH=null;$('h-img').hidden=true;this.hidden=true;};
+$('h-send').onclick=function(){var sel=Object.keys(HSEL).filter(function(k){return HSEL[k];}),t=(sel.join(', ')+($('h-txt').value.trim()?(sel.length?' – ':'')+$('h-txt').value.trim():'')).trim();
+ if(!t){toast('Διάλεξε ή γράψε τι συμβαίνει');return;}var id=$('h-job').value;
+ getPos(function(p){var b={act:'issue',type:HT==='mat'?'material':'problem',text:t,id:id||''};if(p){b.lat=p.lat;b.lon=p.lon;b.acc=p.acc;}if(HPH&&id)b.photo=HPH;
+  send(b,'📨 Στάλθηκε στον επόπτη');$('h-txt').value='';HPH=null;$('h-img').hidden=true;$('h-phx').hidden=true;setHT(HT);});};
+
+/* ---------- έκτακτη ανάγκη ---------- */
+function sosOpen(){$('sosm').classList.add('on');$('sosp').textContent='Πάτα το κόκκινο κουμπί. Ο επόπτης παίρνει αμέσως ειδοποίηση με τη θέση σου.';$('sosgo').disabled=false;$('sosgo').textContent='🆘 Στείλε ειδοποίηση';setTimeout(function(){$('sosgo').focus();},50);}
+function sosClose(){$('sosm').classList.remove('on');$('sosb').focus();}
+$('sosb').onclick=sosOpen;$('sos2').onclick=sosOpen;$('sosx').onclick=sosClose;
+$('sosm').addEventListener('keydown',function(e){if(e.key==='Escape')sosClose();});
+$('sosgo').onclick=function(){var b=this;b.disabled=true;b.textContent='⏳ Αποστολή…';var run=DATA&&DATA.jobs.filter(function(j){return /εξέλιξη/.test(j.status);})[0];
+ getPos(function(p){var o={act:'panic',id:run?run.id:''};if(p){o.lat=p.lat;o.lon=p.lon;o.acc=p.acc;}
+  var off=navigator.onLine===false;send(o);b.textContent=off?'📴 Χωρίς σήμα – θα σταλεί μόλις βρει':'✅ Η ειδοποίηση στάλθηκε';
+  $('sosp').textContent=off?'Δεν υπάρχει σήμα. Πάρε τηλέφωνο τώρα: τον επόπτη ή το 112.':'Ο επόπτης ειδοποιήθηκε. Αν κινδυνεύεις, πάρε τώρα το 112.';});};
+
+/* ---------- μήνας ---------- */
+function loadMonth(){var k='bq_m_'+MON,p=MON.split('-');$('ml').textContent=MN[+p[1]-1]+' '+p[0];$('mm').innerHTML='<div class="empty">Φόρτωση…</div>';
+ fetch(API+'?'+new URLSearchParams({kapi:1,k:KEY,d:ymd(new Date()),m:MON})).then(function(x){return x.json();}).then(function(j){if(j&&j.ok&&j.r.x&&j.r.x.month){S.set(k,JSON.stringify(j.r.x.month));renderMonth(j.r.x.month);}else $('mm').innerHTML='<div class="empty">⚠️ '+esc((j&&j.err)||'Σφάλμα')+'</div>';})
+  .catch(function(){var c=null;try{c=JSON.parse(S.get(k)||'null');}catch(e){}if(c)renderMonth(c,1);else $('mm').innerHTML='<div class="empty">📴 Χωρίς σύνδεση</div>';});}
+function renderMonth(m,off){var h=(off?'<p class="net on" style="border-radius:12px;margin-bottom:10px">📴 Από τη μνήμη της συσκευής</p>':'')+'<div class="kpi"><div><b>'+m.count+'</b>εργασίες</div><div><b>'+String(m.plan).replace('.',',')+'</b>ώρες προγρ.</div><div><b>'+hrs(m.real)+'</b>ώρες πραγμ.</div></div>';
+ if(!m.list.length)h+='<div class="empty">Δεν υπάρχουν ολοκληρωμένες εργασίες αυτόν τον μήνα.</div>';
+ else h+='<div class="card">'+m.list.map(function(x){var d=pd(x.date);return '<div class="li"><div><b>'+DN[d.getDay()].slice(0,3)+' '+d.getDate()+'/'+(d.getMonth()+1)+'</b> · '+esc(x.start)+'<br>'+esc(x.name)+'</div><div class="r">'+String(x.dur).replace('.',',')+' ώρ.'+(x.real?'<br><small style="color:var(--mu)">'+x.real+' λεπτά</small>':'')+'</div></div>';}).join('')+'</div>';
+ $('mm').innerHTML=h;}
+$('mprev').onclick=function(){var p=MON.split('-'),d=new Date(+p[0],+p[1]-2,1);MON=ymd(d).slice(0,7);loadMonth();};
+$('mnext').onclick=function(){var p=MON.split('-'),d=new Date(+p[0],+p[1],1);MON=ymd(d).slice(0,7);loadMonth();};
+
+/* ---------- επόπτης ---------- */
+function renderBoss(){var x=(DATA&&DATA.x)||{},E=x.ev||[],open=E.filter(function(e){return e.open;}).length,b=$('evb');b.hidden=!open;b.textContent=open;
+ var sh=x.shift||{},h='<div class="card"><b>Βάρδια σήμερα:</b> '+(sh.on?'🟢 σε βάρδια από '+esc(sh.since):sh.end?'🔴 έκλεισε στις '+esc(sh.end):'⚪ δεν έχει ξεκινήσει')+'</div>';
+ if(!E.length)h+='<div class="empty">Καμία ειδοποίηση τις τελευταίες 3 μέρες.</div>';
+ E.forEach(function(e){var c=/🆘/.test(e.type)?' sos':/🧴|⚠️/.test(e.type)?' iss':'',far=e.dist!==''&&+e.dist>300;
+  h+='<div class="ev'+c+'"><div class="h"><span>'+esc(e.type)+'</span><span>'+esc(e.at)+'</span></div>'+(e.job?'<div class="m">'+esc(e.job)+'</div>':'')+(e.text?'<div class="t">'+esc(e.text)+'</div>':'')+
+  '<div class="m">'+(e.lat!==''&&e.lon!==''?'<a href="https://maps.google.com/?q='+e.lat+','+e.lon+'" target="_blank" rel="noopener">🗺️ Θέση</a>'+(e.acc!==''?' · ±'+e.acc+' m':''):'Χωρίς θέση')+(e.dist!==''?' · '+(far?'⚠️ ':'')+e.dist+' m από το σημείο':'')+(e.state&&!e.open?' · '+esc(e.state):'')+'</div>'+
+  (e.open?'<button type="button" onclick="resolve('+e.row+')">✔️ Τακτοποιήθηκε</button>':'')+'</div>';});
+ $('alerts').innerHTML=h;
+ var M=x.msgs||[];$('b-list').innerHTML=M.length?M.map(function(m){return '<div class="ev"><div class="h"><span>'+esc(m.at)+'</span><span>'+(m.read?'✓ Το είδε':'• Δεν το είδε ακόμη')+'</span></div><div class="t">'+esc(m.text)+'</div></div>';}).join(''):'<div class="empty">Δεν έχουν σταλεί μηνύματα.</div>';}
+function resolve(row){send({act:'resolve',row:row},'✔️ Σημειώθηκε');}
+$('b-send').onclick=function(){var t=$('b-txt').value.trim();if(!t){toast('Γράψε το μήνυμα');return;}send({act:'msg',text:t},'📨 Το μήνυμα στάλθηκε');$('b-txt').value='';};
+function receipt(id,inp){var f=inp.files&&inp.files[0];if(!f)return;if(f.size>8e6){toast('⚠️ Πολύ μεγάλο αρχείο');return;}toast('🧾 Ανέβασμα…');var fr=new FileReader();fr.onload=function(){send({act:'receipt',id:id,data:fr.result,name:f.name},'🧾 Το παραστατικό ανέβηκε');};fr.readAsDataURL(f);}
+
+/* ---------- χάρτης ---------- */
+var MP=null,ML=null,MR=null,MRK='',ME=null;
+function loadLeaflet(cb){if(window.L)return cb();var l=document.createElement('link');l.rel='stylesheet';l.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(l);var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';s.onload=cb;s.onerror=function(){$('mapinfo').textContent='⚠️ Ο χάρτης θέλει σύνδεση στο internet';};document.head.appendChild(s);}
 function stCol(s){return /✅/.test(s)?'#43a047':/εξέλιξη|🧹/.test(s)?'#fb8c00':'#1e88e5';}
-function mapDraw(){if(!MAPON||!DATA||!window.L)return;var info=document.getElementById('mapinfo');
+function mapDraw(){if(!DATA||!window.L)return;var info=$('mapinfo');
  if(!MP){MP=L.map('mapc',{zoomControl:true});L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap · OSRM'}).addTo(MP);ML=L.layerGroup().addTo(MP);}
  ML.clearLayers();var st=DATA.start,pts=[],b=[],miss=0;
- if(st){L.marker([st.lat,st.lon],{icon:L.divIcon({className:'',html:'<div style="font-size:22px">🏁</div>',iconSize:[24,24],iconAnchor:[5,22]})}).addTo(ML).bindTooltip('Αφετηρία: '+esc(st.name||'Πάρκο'));b.push([st.lat,st.lon]);}
+ if(st){L.marker([st.lat,st.lon],{icon:L.divIcon({className:'',html:'<div style="font-size:22px">🏁</div>',iconSize:[24,24],iconAnchor:[5,22]})}).addTo(ML).bindTooltip('Αφετηρία: '+esc(st.name||''));b.push([st.lat,st.lon]);}
  DATA.jobs.forEach(function(j,i){if(j.lat==null){miss++;return;}var c=stCol(j.status);
-  L.marker([j.lat,j.lon],{icon:L.divIcon({className:'',iconSize:[28,28],iconAnchor:[14,28],popupAnchor:[0,-24],html:'<div class="mpin" style="background:'+c+'"><span>'+(i+1)+'</span></div>'})}).addTo(ML)
-   .bindPopup('<b>'+(i+1)+'. '+esc(j.name)+'</b><br>'+j.start+' · '+esc(j.status)+'<br>📍 '+esc(j.addr)+'<br><a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination='+j.lat+','+j.lon+'">🧭 Πλοήγηση</a>');
+  L.marker([j.lat,j.lon],{icon:L.divIcon({className:'',iconSize:[30,30],iconAnchor:[15,30],popupAnchor:[0,-26],html:'<div class="mpin" style="background:'+c+'"><span>'+(i+1)+'</span></div>'})}).addTo(ML)
+   .bindPopup('<b>'+(i+1)+'. '+esc(j.name)+'</b><br>'+j.start+' · '+esc(j.status)+'<br>📍 '+esc(j.addr)+'<br><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+j.lat+','+j.lon+'">🧭 Πλοήγηση</a>');
   b.push([j.lat,j.lon]);pts.push([j.lat,j.lon]);});
  if(ME)b.push(ME.getLatLng());
  var key=DATA.date+'|'+(st?st.lat+','+st.lon:'')+'|'+pts.join(';');
  if(key!==MRK){MRK=key;if(b.length>1)MP.fitBounds(b,{padding:[30,30],maxZoom:16});else MP.setView(b[0]||[40.7817,21.4098],14);
-  if(MR){MP.removeLayer(MR);MR=null;}info.textContent=DATA.jobs.length?(miss?'📍 '+miss+' εργασίες χωρίς θέση στον χάρτη':''):'Καμία εργασία αυτή τη μέρα';
+  if(MR){MP.removeLayer(MR);MR=null;}info.textContent=DATA.jobs.length?(miss?'📍 '+miss+' εργασίες χωρίς θέση':''):'Καμία εργασία αυτή τη μέρα';
   if(st&&pts.length){var co=[[st.lat,st.lon]].concat(pts).concat([[st.lat,st.lon]]).map(function(p){return p[1].toFixed(6)+','+p[0].toFixed(6);}).join(';');
    fetch('https://router.project-osrm.org/route/v1/driving/'+co+'?overview=full&geometries=geojson').then(function(r){return r.json();}).then(function(o){if(o.code!=='Ok'||key!==MRK)return;var r=o.routes[0];MR=L.geoJSON(r.geometry,{style:{color:'#1b5e20',weight:5,opacity:.75}}).addTo(MP);
-    info.textContent='🚐 Δρομολόγιο: '+(r.distance/1000).toFixed(1)+' km · '+Math.round(r.duration/60)+' λεπτά οδήγηση'+(miss?' · 📍 '+miss+' χωρίς θέση':'');}).catch(function(){});}}
- setTimeout(function(){MP.invalidateSize();},50);}
-document.getElementById('mapb').onclick=function(){MAPON=!MAPON;this.className=MAPON?'on':'';document.getElementById('mapbox').style.display=MAPON?'block':'none';if(MAPON)loadLeaflet(function(){MRK='';mapDraw();});};
-document.getElementById('meb').onclick=function(){if(!navigator.geolocation){toast('⚠️ Δεν υποστηρίζεται');return;}navigator.geolocation.getCurrentPosition(function(p){var ll=[p.coords.latitude,p.coords.longitude];if(ME)ME.setLatLng(ll);else ME=L.circleMarker(ll,{radius:8,color:'#fff',weight:3,fillColor:'#1565c0',fillOpacity:1}).addTo(MP).bindTooltip('Εσύ');MP.setView(ll,16);},function(){toast('⚠️ Δεν δόθηκε άδεια τοποθεσίας');},{enableHighAccuracy:true,timeout:10000});};
-function receipt(id,inp){var f=inp.files&&inp.files[0];if(!f)return;if(f.size>8e6){toast('⚠️ Πολύ μεγάλο αρχείο');return;}toast('🧾 Ανέβασμα…');var fr=new FileReader();fr.onload=function(){google.script.run.withSuccessHandler(function(r){render(r);toast('🧾 Το παραστατικό ανέβηκε');}).withFailureHandler(function(e){toast('⚠️ '+(e.message||e));}).kaAppReceipt(KEY,id,fr.result,f.name);};fr.readAsDataURL(f);}
-function tick(id,el,t){var o=getCk(id);o[t]=el.checked?1:0;setCk(id,o);if(el.checked)toast('✔️ '+t);}
-function finish(id,k){var L=CKJ[id]||CK[k],o=getCk(id),miss=L.filter(function(t){return !o[t];});if(miss.length&&!confirm('Δεν έχεις τσεκάρει:\n• '+miss.join('\n• ')+'\n\nΝα το κλείσω έτσι κι αλλιώς;'))return;act(id,'done',L.filter(function(t){return o[t];}).join(' | '));}
-function tickTimers(){[].forEach.call(document.querySelectorAll('.timer'),function(e){var n=new Date(),now=n.getHours()*60+n.getMinutes(),el=now-mins(e.getAttribute('data-t0')),pl=+e.getAttribute('data-dur')*60;e.textContent='⏱ '+el+' / '+pl+' λεπτά'+(el>pl?' – πάνω από τον χρόνο':'');e.className='timer'+(el>pl?' late':'');});}
-document.getElementById('prev').onclick=function(){var d=pd(D);d.setDate(d.getDate()-1);load(ymd(d));};
-document.getElementById('next').onclick=function(){var d=pd(D);d.setDate(d.getDate()+1);load(ymd(d));};
-document.getElementById('today').onclick=function(){load(ymd(new Date()));};
-var hr=new Date().getHours();document.getElementById('hello').textContent=(hr<12?'Καλημέρα':hr<18?'Καλό απόγευμα':'Καλησπέρα')+' · Καθαρά Χέρια';
-setInterval(function(){tickTimers();var c=document.getElementById('cmp');c.style.transform='rotate('+(Math.random()*40-20)+'deg)';},30000);
-if(BOSS){document.querySelector('h1').textContent='👁 Επόπτης';document.getElementById('hello').textContent='Ζωντανή εικόνα · ανανέωση κάθε λεπτό';document.body.className='boss';setInterval(function(){if(D)load(D,1);},60000);}
-if(!KEY){document.getElementById('m').innerHTML='<div class="lock">🔒 <b>Μπούσουλας</b><br>Άνοιξε την εφαρμογή σκανάροντας το QR που σου δόθηκε.</div>';}else load(ymd(new Date()));
+    info.textContent='🚐 '+(r.distance/1000).toFixed(1).replace('.',',')+' km · '+Math.round(r.duration/60)+' λεπτά οδήγηση'+(miss?' · 📍 '+miss+' χωρίς θέση':'');}).catch(function(){});}}
+ setTimeout(function(){MP.invalidateSize();},60);}
+$('meb').onclick=function(){if(!window.L)return;getPos(function(p){if(!p){toast('⚠️ Δεν βρέθηκε θέση – έλεγξε την άδεια τοποθεσίας');return;}var ll=[p.lat,p.lon];if(ME)ME.setLatLng(ll);else ME=L.circleMarker(ll,{radius:9,color:'#fff',weight:3,fillColor:'#1565c0',fillOpacity:1}).addTo(MP).bindTooltip('Εσύ');MP.setView(ll,16);});};
+
+/* ---------- πλοήγηση ---------- */
+function show(v){VIEW=v;[].forEach.call(document.querySelectorAll('.view'),function(s){s.classList.toggle('on',s.id==='v-'+v);});
+ [].forEach.call(document.querySelectorAll('nav.tabs button'),function(b){if(b.getAttribute('data-v')===v)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+ window.scrollTo(0,0);if(v==='map')loadLeaflet(function(){MRK='';mapDraw();});if(v==='month'){if(!MON)MON=ymd(new Date()).slice(0,7);loadMonth();}if(v==='help')fillJobs();}
+[].forEach.call(document.querySelectorAll('nav.tabs button'),function(b){b.onclick=function(){show(b.getAttribute('data-v'));};});
+$('prev').onclick=function(){var d=pd(D);d.setDate(d.getDate()-1);DATA=null;load(ymd(d));};
+$('next').onclick=function(){var d=pd(D);d.setDate(d.getDate()+1);DATA=null;load(ymd(d));};
+$('today').onclick=function(){DATA=null;load(ymd(new Date()));};
+window.addEventListener('online',function(){netBar();flush();});window.addEventListener('offline',netBar);
+var hr=new Date().getHours();$('hello').textContent=(hr<12?'Καλημέρα':hr<18?'Καλό απόγευμα':'Καλησπέρα')+' · Καθαρά Χέρια';
+setHT('mat');
+if(BOSS){document.body.className='boss';$('ttl').textContent='👁 Επόπτης';$('hello').textContent='Ζωντανή εικόνα · ανανέωση κάθε λεπτό';setInterval(function(){if(D&&!BUSY)load(D,1);},60000);}
+setInterval(function(){tickTimers();flush();},30000);
+if(!KEY){document.querySelector('main').innerHTML='<div class="lock">🔒 <b>Μπούσουλας</b><br>Άνοιξε την εφαρμογή σκανάροντας το QR που σου δόθηκε.</div>';document.querySelector('nav.tabs').hidden=true;$('sosb').hidden=true;}
+else{var c0=null;try{c0=JSON.parse(S.get('bq_d_'+ymd(new Date()))||'null');}catch(e){}if(c0&&c0.r){D=c0.r.date;DATA=c0.r;render();}load(ymd(new Date()),!!c0);netBar();flush();}
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){});}
 </script></body></html>
